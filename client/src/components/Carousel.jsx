@@ -17,11 +17,11 @@ class Carousel extends React.Component {
     this.rightArrowHandler = this.rightArrowHandler.bind(this);
   }
 
-  leftArrowHandler () {
+  leftArrowHandler() {
 
   }
 
-  rightArrowHandler () {
+  rightArrowHandler() {
     this.setState(prevState => ({
       currentIndex: prevState.currentIndex + 1
     }));
@@ -30,17 +30,17 @@ class Carousel extends React.Component {
   render() {
     return (
       <div>
-        <div style={{float:'left'}} className="carousel">
-          <GalleryLists lists={this.state.lists}/>
+        <div style={{ float: 'left' }} className="carousel">
+          <GalleryLists lists={this.state.lists} />
         </div>
         <div>
-          <LeftArrow  leftArrow={this.leftArrowHandler}/>
+          <LeftArrow leftArrow={this.leftArrowHandler} />
         </div>
-        <div style={{float:'left'}}>
-          <MainSlide list={this.state.lists[0]}/>
+        <div style={{ float: 'left' }}>
+          <MainSlide list={this.state.lists[0]} />
         </div>
         <div>
-          <RightArrow  rightArrow={this.rightArrowHandler}/>
+          <RightArrow rightArrow={this.rightArrowHandler} />
         </div>
       </div>
 
