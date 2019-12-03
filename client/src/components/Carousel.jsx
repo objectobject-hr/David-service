@@ -33,14 +33,14 @@ class Carousel extends React.Component {
         <div style={{ float: 'left' }} className="carousel">
           <GalleryLists lists={this.state.lists} />
         </div>
-        <div>
-          <LeftArrow leftArrow={this.leftArrowHandler} />
-        </div>
         <div style={{ float: 'left' }}>
+          <div>
+            <LeftArrow leftArrow={this.leftArrowHandler} />
+          </div>
           <MainSlide list={this.state.lists[0]} />
-        </div>
-        <div>
-          <RightArrow rightArrow={this.rightArrowHandler} />
+          <div>
+            <RightArrow rightArrow={this.rightArrowHandler} />
+          </div>
         </div>
       </div>
 

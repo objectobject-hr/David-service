@@ -7,4 +7,5 @@ app.use(bodyParser.json())
 
 app.use(express.static(__dirname + '/../client/dist/'))
 
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
