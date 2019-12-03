@@ -1,10 +1,12 @@
 import React from 'react';
 import GalleryLists from './GalleryLists.jsx';
-import MainSlide from './MainSlide.jsx'
+import MainSlide from './MainSlide.jsx';
+import LeftArrow from './LeftArrow.jsx';
+import RightArrow from './RightArrow.jsx';
 
 class Carousel extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {}
   }
@@ -18,6 +20,8 @@ class Carousel extends React.Component {
         <div>
           <MainSlide />
         </div>
+        <LeftArrow />
+        <RightArrow />
       </div>
 
     )
