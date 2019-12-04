@@ -30,7 +30,6 @@ class App extends React.Component {
         if (this.state.list === null) {
             return null
         } else {
-            console.log(this.state.list)
             return (
                 <div>
                     <div><Carousel /></div>

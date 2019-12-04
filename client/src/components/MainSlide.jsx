@@ -9,7 +9,7 @@ const StyledImg = styled.image`
 const MainSlide = (props) => (
 
   <StyledImg>
-    <img src={props.list} width="700" height="700" />
+    <img src={props.list[props.index]} width="600" height="700" />
   </StyledImg>
 
 )

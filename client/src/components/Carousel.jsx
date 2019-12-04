@@ -17,9 +17,6 @@ class Carousel extends React.Component {
     this.rightArrowHandler = this.rightArrowHandler.bind(this);
   }
 
-  leftArrowHandler() {
-
-  }
 
   componentDidMount() {
     this.getProductData()
@@ -35,9 +32,27 @@ class Carousel extends React.Component {
   }
 
   rightArrowHandler() {
-    this.setState(prevState => ({
-      currentIndex: prevState.currentIndex + 1
-    }));
+    if (this.state.currentIndex < this.state.lists[0].imageSrc.length - 1) {
+      this.setState(prevState => ({
+        currentIndex: prevState.currentIndex + 1
+      }));
+    } else {
+      this.setState({
+        currentIndex: 0
+      })
+    }
+  }
+
+  leftArrowHandler() {
+    if (this.state.currentIndex <= 0) {
+      this.setState({
+        currentIndex: this.state.lists[0].imageSrc.length - 1
+      })
+    } else {
+      this.setState(prevState => ({
+        currentIndex: prevState.currentIndex - 1
+      }));
+    }
   }
 
   render() {
@@ -57,7 +72,7 @@ class Carousel extends React.Component {
             <div>
               <LeftArrow leftArrow={this.leftArrowHandler} />
             </div>
-            <MainSlide list={this.state.lists[0].imageSrc[0]} />
+            <MainSlide list={this.state.lists[0].imageSrc} index={this.state.currentIndex} />
             <div>
               <RightArrow rightArrow={this.rightArrowHandler} />
             </div>
