@@ -36,7 +36,7 @@ class App extends React.Component {
                     <div><Carousel /></div>
                     <div className="product detail">
                         <ProductDetail data={this.state.list[0]} />
-                    </div>
+                    </div><br />
                     <div><OptionButtons /></div>
                 </div>
             )

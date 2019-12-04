@@ -1,15 +1,18 @@
 import React from 'react';
 
-class Optionbuttons extends React.Component {
+class OptionButtons extends React.Component {
     constructor() {
         super()
     }
 
     render() {
         return (
-            <div>
-                Quantity <input />
+            <div><label>Quantity </label><button>-</button>
+                <input />
+                <button>+</button>
             </div>
         )
     }
 }
+
+export default OptionButtons;
