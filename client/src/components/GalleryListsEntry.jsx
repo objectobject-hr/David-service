@@ -1,8 +1,13 @@
 import React from 'react';
+import StyledButton from './styledComponents/styledButton.jsx'
 
 const GalleryListsEntry = (props) => {
   return (
-    <button><img src={props.list} width="75" height="75" /></button>
+    <StyledButton>
+
+      <img src={props.list} width="75" height="75" />
+
+    </StyledButton>
   )
 }
 
