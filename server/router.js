@@ -3,7 +3,7 @@ const controllers = require('./controllers.js');
 
 router
     .route('/ikea')
-    .get((req, res) => (res.status(200).send('hello world')))
+    .get(controllers.getAll)
     .post(controllers.postOne)
 
 module.exports = router;

@@ -38,15 +38,23 @@ var save = (req, callback) => {
       callback(null, results)
     }
   })
-
 }
 
-// var get = (callback) => {
+var getAll = (callback) => {
 
-//   IkeaImg.
-// }
+  IkeaImgs.find({}, (err, data) => {
+    if (err) {
+      callback(err)
+    } else {
+      callback(null, data)
+    }
+  })
+}
+
+
 
 module.exports.save = save;
+module.exports.getAll = getAll;
 
 
 /*
