@@ -82,7 +82,9 @@ class Carousel extends React.Component {
             <div>
               <LeftArrow leftArrow={this.leftArrowHandler} />
             </div>
-            <MainSlide list={this.state.lists[0].imageSrc} index={this.state.currentIndex} />
+            <div>
+              <MainSlide list={this.state.lists[0].imageSrc} index={this.state.currentIndex} />
+            </div>
             <div>
               <RightArrow rightArrow={this.rightArrowHandler} />
             </div>
