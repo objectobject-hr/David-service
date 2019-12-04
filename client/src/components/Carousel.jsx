@@ -15,6 +15,7 @@ class Carousel extends React.Component {
     }
     this.leftArrowHandler = this.leftArrowHandler.bind(this);
     this.rightArrowHandler = this.rightArrowHandler.bind(this);
+    this.getIndex = this.getIndex.bind(this)
   }
 
 
@@ -55,6 +56,15 @@ class Carousel extends React.Component {
     }
   }
 
+  getIndex(url) {
+    var imgs = this.state.lists[0].imageSrc
+    var index = imgs.indexOf(url)
+
+    this.setState({
+      currentIndex: index
+    })
+  }
+
   render() {
 
     if (this.state.lists === null) {
@@ -66,7 +76,7 @@ class Carousel extends React.Component {
       return (
         < div >
           <div style={{ float: 'left' }} className="carousel">
-            <GalleryLists lists={this.state.lists[0].imageSrc} />
+            <GalleryLists lists={this.state.lists[0].imageSrc} index={this.getIndex} />
           </div>
           <div style={{ float: 'left' }}>
             <div>
