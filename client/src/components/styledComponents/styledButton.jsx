@@ -5,6 +5,7 @@ const StyledButton = styled.button`
     margin: 7px;
     vertical-align: top;
     cursor: pointer;
+    border: 2px solid lightgrey;
 `;
 
 export default StyledButton;

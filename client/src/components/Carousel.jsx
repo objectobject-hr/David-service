@@ -48,11 +48,13 @@ class Carousel extends React.Component {
 
     this.state = {
       lists: null,
-      currentIndex: 0
+      currentIndex: 0,
+      url: null
     }
     this.leftArrowHandler = this.leftArrowHandler.bind(this);
     this.rightArrowHandler = this.rightArrowHandler.bind(this);
     this.getIndex = this.getIndex.bind(this)
+    this.getUrl = this.getUrl.bind(this)
   }
 
 
@@ -64,7 +66,8 @@ class Carousel extends React.Component {
     axios.get('/ikea').then((response) => {
       // console.log('hello from client', response.data)
       this.setState({
-        lists: response.data
+        lists: response.data,
+        url: response.data[0].imageSrc[0]
       })
     })
   }
@@ -102,6 +105,13 @@ class Carousel extends React.Component {
     })
   }
 
+  getUrl(url) {
+
+    this.setState({
+      url: url
+    })
+  }
+
   render() {
 
     if (this.state.lists === null) {
@@ -130,7 +140,7 @@ class Carousel extends React.Component {
               </StyledOverflow>
             </div>
             <StyledImageLists>
-              <GalleryLists lists={this.state.lists[0].imageSrc} index={this.getIndex} />
+              <GalleryLists lists={this.state.lists[0].imageSrc} index={this.getIndex} getUrl={this.getUrl} url={this.state.url} />
             </StyledImageLists>
             <div>
               <RightArrow rightArrow={this.rightArrowHandler} />
