@@ -20,7 +20,7 @@ const StyledWrapper = styled.div`
   left: -200%;
   transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
   overflow: hidden;
-
+  cursor: zoom-in;
 
   .card {
     flex: 1;
@@ -119,7 +119,7 @@ class Carousel extends React.Component {
             <div>
               <StyledOverflow>
                 <StyledSlider>
-                  <StyledWrapper style={{ 'transform': `translateX(-${this.state.currentIndex * (100 / this.state.lists[0].imageSrc.length)}%)` }}>
+                  <StyledWrapper onClick={() => { this.props.zoom() }} style={{ 'transform': `translateX(-${this.state.currentIndex * (100 / this.state.lists[0].imageSrc.length)}%)` }}>
                     {
                       this.state.lists[0].imageSrc.map((list, i) =>
                         <MainSlide list={list} index={this.state.currentIndex} key={i} />
