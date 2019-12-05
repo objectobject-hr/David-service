@@ -4,6 +4,43 @@ import MainSlide from './MainSlide.jsx';
 import LeftArrow from './LeftArrow.jsx';
 import RightArrow from './RightArrow.jsx';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const StyledSlider = styled.div`
+  top:5rem;
+  position: relative;
+  max-width: 226px;
+  margin: 0 auto;
+  
+`
+
+const StyledWrapper = styled.div`
+  display: flex;
+  position: absolute;
+  left: -200%;
+  transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  overflow: hidden;
+
+
+  .card {
+    flex: 1;
+    min-width: 200px;
+  }
+`
+
+const StyledOverflow = styled.div`
+width: 800px;
+height: 800px;
+overflow: hidden;
+left: 35rem;
+position: fixed;
+`
+
+const StyledImageLists = styled.div`
+  position: absolute;
+  width: 200px;
+  height: 200px;
+`
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -75,20 +112,30 @@ class Carousel extends React.Component {
     } else {
       return (
         < div >
-          <div style={{ float: 'left' }} className="carousel">
-            <GalleryLists lists={this.state.lists[0].imageSrc} index={this.getIndex} />
-          </div>
-          <div style={{ float: 'left' }}>
+          <div >
             <div>
               <LeftArrow leftArrow={this.leftArrowHandler} />
             </div>
             <div>
-              <MainSlide list={this.state.lists[0].imageSrc} index={this.state.currentIndex} />
+              <StyledOverflow>
+                <StyledSlider>
+                  <StyledWrapper style={{ 'transform': `translateX(-${this.state.currentIndex * (100 / this.state.lists[0].imageSrc.length)}%)` }}>
+                    {
+                      this.state.lists[0].imageSrc.map((list, i) =>
+                        <MainSlide list={list} index={this.state.currentIndex} key={i} />
+                      )
+                    }
+                  </StyledWrapper>
+                </StyledSlider>
+              </StyledOverflow>
             </div>
+            <StyledImageLists>
+              <GalleryLists lists={this.state.lists[0].imageSrc} index={this.getIndex} />
+            </StyledImageLists>
             <div>
               <RightArrow rightArrow={this.rightArrowHandler} />
             </div>
-          </div>
+          </div >
         </div >
       )
     }

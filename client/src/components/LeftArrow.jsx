@@ -4,7 +4,7 @@ import styled from 'styled-components';
 let StyledArrow = styled.div`
 position: absolute;
     top: 22rem;
-    left: 10rem;
+    left: 30rem;
     z-index: 999;
     cursor: pointer;
 `
