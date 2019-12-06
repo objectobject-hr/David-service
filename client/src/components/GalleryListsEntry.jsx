@@ -37,24 +37,10 @@ class GalleryListsEntry extends React.Component {
       this.setState({
         selected: true
       })
-
-    this.componentDidMount()
   }
 
   componentDidMount() {
-
-    if (this.props.list !== this.props.url) {
-
-      this.setState({
-        selected: false
-      })
-    } else {
-
-      this.setState({
-        selected: true
-      })
-    }
-
+    this.selectHandler()
   }
 
   componentDidUpdate(prevProps) {
@@ -63,7 +49,7 @@ class GalleryListsEntry extends React.Component {
         selected: false
       })
     }
-
+    setTimeout(this.selectHandler, 10)
   }
 
 
@@ -74,7 +60,7 @@ class GalleryListsEntry extends React.Component {
       return (
         <StyledButton onClick={this.selectHandler}>
 
-          <img src={this.props.list} onClick={() => { this.props.getIndex(this.props.list); setTimeout(() => { this.selectHandler() }, 50) }} width="75" height="75" />
+          <img src={this.props.list} onClick={() => { this.props.getIndex(this.props.list); setTimeout(() => { this.selectHandler() }, 10) }} width="75" height="75" />
 
         </StyledButton>
       )
