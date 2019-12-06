@@ -54,13 +54,22 @@ class Carousel extends React.Component {
     this.leftArrowHandler = this.leftArrowHandler.bind(this);
     this.rightArrowHandler = this.rightArrowHandler.bind(this);
     this.getIndex = this.getIndex.bind(this)
-    this.getUrl = this.getUrl.bind(this)
+
   }
 
 
   componentDidMount() {
     this.getProductData()
+    this.props.indexGetter(this.state.currentIndex)
   }
+
+  // componentDidUpdate(prevState) {
+  //   if (this.state.currentIndex !== prevState.currentIndex) {
+  //     this.setState({
+  //       url: this.state.lists[0].imageSrc[this.state.currentIndex]
+  //     })
+  //   }
+  // }
 
   getProductData() {
     axios.get('/ikea').then((response) => {
@@ -82,6 +91,16 @@ class Carousel extends React.Component {
         currentIndex: 0
       })
     }
+
+    if (this.state.currentIndex < this.state.lists[0].imageSrc.length - 1) {
+      this.setState({
+        url: this.state.lists[0].imageSrc[this.state.currentIndex + 1]
+      })
+    } else {
+      this.setState({
+        url: this.state.lists[0].imageSrc[0]
+      })
+    }
   }
 
   leftArrowHandler() {
@@ -94,26 +113,39 @@ class Carousel extends React.Component {
         currentIndex: prevState.currentIndex - 1
       }));
     }
+
+    if (this.state.currentIndex === 0) {
+      this.setState({
+        url: this.state.lists[0].imageSrc[this.state.lists[0].imageSrc.length - 1]
+      })
+    } else {
+      this.setState({
+        url: this.state.lists[0].imageSrc[this.state.currentIndex - 1]
+      })
+    }
   }
 
   getIndex(url) {
+    // console.log(url)
     var imgs = this.state.lists[0].imageSrc
     var index = imgs.indexOf(url)
 
     this.setState({
-      currentIndex: index
+      currentIndex: index,
+      url: this.state.lists[0].imageSrc[index]
     })
   }
 
-  getUrl(url) {
+  // urlChanger() {
 
-    this.setState({
-      url: url
-    })
-  }
+  //   this.setState({
+  //     url: this.state.lists[0].imageSrc[this.state.currentIndex]
+  //   })
+  // }
 
   render() {
-
+    // console.log(this.state.currentIndex)
+    console.log(this.state.url)
     if (this.state.lists === null) {
 
       return (
@@ -140,7 +172,7 @@ class Carousel extends React.Component {
               </StyledOverflow>
             </div>
             <StyledImageLists>
-              <GalleryLists lists={this.state.lists[0].imageSrc} index={this.getIndex} getUrl={this.getUrl} url={this.state.url} />
+              <GalleryLists lists={this.state.lists[0].imageSrc} index={this.getIndex} url={this.state.url} />
             </StyledImageLists>
             <div>
               <RightArrow rightArrow={this.rightArrowHandler} />

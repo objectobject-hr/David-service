@@ -34,16 +34,30 @@ background-position: 50%;
 border: none;
 `
 
+const StyledZoomImage = styled.div`
+position: absolute;
+text-align: center;
+top: 0%;
+transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+.card {
+  flex: 1;
+  min-width: 200px;
+}
+`
+
 class App extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
             list: null,
-            isOpen: false
+            isOpen: false,
+            currentIndex: null
         }
 
         this.zoomHandler = this.zoomHandler.bind(this)
+        this.indexGetter = this.indexGetter.bind(this)
     }
 
     componentDidMount() {
@@ -65,7 +79,16 @@ class App extends React.Component {
         })
     }
 
+    indexGetter(index) {
+        console.log(this.state.currentIndex)
+        this.setState({
+            currentIndex: index
+        })
+    }
+
     render() {
+        console.log(this.state.list)
+
         if (this.state.list === null) {
             return null
         } else {
@@ -75,7 +98,7 @@ class App extends React.Component {
                     <div>
                         <StyledBody>
                             <div>
-                                <Carousel zoom={this.zoomHandler} />
+                                <Carousel indexGetter={this.indexGetter} zoom={this.zoomHandler} />
                             </div>
                             <StyledProductDetail>
                                 <div>
@@ -94,9 +117,11 @@ class App extends React.Component {
                                 <path fill-rule="evenodd" d="M17.597 5l-5.592 5.592L6.414 5 5 6.415l5.591 5.591L5 17.597l1.414 1.414 5.591-5.592 5.592 5.592 1.414-1.414-5.592-5.591 5.592-5.591z" />
                             </svg>
                         </StyledCloseButton>
-                        {this.state.list[0].imageSrc.map((img, i) => (
-                            < ZoomImages list={img} key={i} />
-                        ))}
+                        <StyledZoomImage style={{ 'transform': `translateY(-${this.state.currentIndex * (100 / this.state.list[0].imageSrc.length)}%)` }}>
+                            {this.state.list[0].imageSrc.map((img, i) => (
+                                < ZoomImages list={img} key={i} />
+                            ))}
+                        </StyledZoomImage>
                     </div>
                 )
             }

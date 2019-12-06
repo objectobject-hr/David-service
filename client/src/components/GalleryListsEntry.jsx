@@ -16,7 +16,45 @@ class GalleryListsEntry extends React.Component {
 
     this.state = {
       selected: false,
+      url: null
     }
+
+    this.selectHandler = this.selectHandler.bind(this)
+
+  }
+
+  // getProps() {
+
+  //   this.setState({
+  //     url: this.props.url
+  //   })
+  // }
+
+  selectHandler() {
+    console.log('lists!!!!!!!', this.props.list)
+    console.log('currentUrl', this.props.url)
+    if (this.props.url === this.props.list)
+      this.setState({
+        selected: true
+      })
+
+    this.componentDidMount()
+  }
+
+  componentDidMount() {
+
+    if (this.props.list !== this.props.url) {
+
+      this.setState({
+        selected: false
+      })
+    } else {
+
+      this.setState({
+        selected: true
+      })
+    }
+
   }
 
   componentDidUpdate(prevProps) {
@@ -25,21 +63,18 @@ class GalleryListsEntry extends React.Component {
         selected: false
       })
     }
+
   }
 
-  selectHandler() {
-    this.setState({
-      selected: true
-    })
-  }
 
   render() {
-    if (this.state.selected === false) {
-      console.log(this.props)
-      return (
-        <StyledButton>
 
-          <img src={this.props.list} onClick={() => { this.selectHandler(); this.props.getIndex(this.props.list); this.props.getUrl(this.props.list) }} width="75" height="75" />
+    if (this.state.selected === false) {
+
+      return (
+        <StyledButton onClick={this.selectHandler}>
+
+          <img src={this.props.list} onClick={() => { this.props.getIndex(this.props.list); setTimeout(() => { this.selectHandler() }, 50) }} width="75" height="75" />
 
         </StyledButton>
       )
@@ -47,7 +82,7 @@ class GalleryListsEntry extends React.Component {
       return (
         <StyledSelected>
 
-          <img src={this.props.list} onClick={() => { this.props.getIndex(this.props.list) }} width="75" height="75" />
+          <img src={this.props.list} width="75" height="75" />
 
         </StyledSelected>
       )
