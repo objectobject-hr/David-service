@@ -31,8 +31,8 @@ class GalleryListsEntry extends React.Component {
   // }
 
   selectHandler() {
-    console.log('lists!!!!!!!', this.props.list)
-    console.log('currentUrl', this.props.url)
+    // console.log('lists!!!!!!!', this.props.list)
+    // console.log('currentUrl', this.props.url)
     if (this.props.url === this.props.list)
       this.setState({
         selected: true

@@ -12,7 +12,7 @@ background-color: white;
 top: 3rem;
 position: absolute;
 height: 700px;
-right: 150px;
+right: 240px;
 padding-right: 50px;
 padding-left: 50px;
 `;
@@ -20,30 +20,27 @@ padding-left: 50px;
 const StyledBody = styled.div`
 margin-left: 20rem;
 margin-right: 20rem;
-`
+`;
 
 const StyledCloseButton = styled.button`
 cursor: pointer;
 position: fixed;
-top: 10px;
-right: 10px;
-width: 4rem;
-height: 4rem;
+top: 15px;
+right: 15px;
+width: 3rem;
+height: 3rem;
 border-radius: 50%;
 background-position: 50%;
 border: none;
 `
 
 const StyledZoomImage = styled.div`
+display: grid;
 position: absolute;
 text-align: center;
-top: 0%;
-transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-.card {
-  flex: 1;
-  min-width: 200px;
-}
+top: -20%
+right: 265px;
+transition: transform;
 `
 
 class App extends React.Component {
@@ -53,7 +50,7 @@ class App extends React.Component {
         this.state = {
             list: null,
             isOpen: false,
-            currentIndex: null
+            currentIndex: 4
         }
 
         this.zoomHandler = this.zoomHandler.bind(this)
@@ -80,15 +77,12 @@ class App extends React.Component {
     }
 
     indexGetter(index) {
-        console.log(this.state.currentIndex)
         this.setState({
             currentIndex: index
         })
     }
 
     render() {
-        console.log(this.state.list)
-
         if (this.state.list === null) {
             return null
         } else {
@@ -110,18 +104,23 @@ class App extends React.Component {
                     </div>
                 )
             } else {
+                console.log('index!?!? -----', this.state.currentIndex)
+                console.log('list exist?!?!?', this.state.list[0].imageSrc.length)
                 return (
                     <div>
-                        <StyledCloseButton>
-                            <svg onClick={() => { this.zoomHandler() }} width="20" height="20">
+                        <StyledCloseButton onClick={() => { this.zoomHandler() }}>
+                            <svg width="20" height="20">
                                 <path fill-rule="evenodd" d="M17.597 5l-5.592 5.592L6.414 5 5 6.415l5.591 5.591L5 17.597l1.414 1.414 5.591-5.592 5.592 5.592 1.414-1.414-5.592-5.591 5.592-5.591z" />
                             </svg>
                         </StyledCloseButton>
+                        {/* <StyledSlider style={{ 'transform': `translateY(-${0 * (100 / this.state.list[0].imageSrc.length)}%)` }}> */}
                         <StyledZoomImage style={{ 'transform': `translateY(-${this.state.currentIndex * (100 / this.state.list[0].imageSrc.length)}%)` }}>
+
                             {this.state.list[0].imageSrc.map((img, i) => (
                                 < ZoomImages list={img} key={i} />
                             ))}
                         </StyledZoomImage>
+                        {/* </StyledSlider> */}
                     </div>
                 )
             }

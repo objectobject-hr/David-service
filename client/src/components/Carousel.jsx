@@ -11,13 +11,13 @@ const StyledSlider = styled.div`
   position: relative;
   max-width: 226px;
   margin: 0 auto;
-  
+
 `
 
 const StyledWrapper = styled.div`
   display: flex;
   position: absolute;
-  left: -200%;
+  left: -140%;
   transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
   overflow: hidden;
   cursor: zoom-in;
@@ -29,8 +29,8 @@ const StyledWrapper = styled.div`
 `
 
 const StyledOverflow = styled.div`
-width: 800px;
-height: 800px;
+width: 550px;
+height: 700px;
 overflow: hidden;
 left: 35rem;
 position: fixed;
@@ -60,9 +60,11 @@ class Carousel extends React.Component {
 
   componentDidMount() {
     this.getProductData()
-    this.props.indexGetter(this.state.currentIndex)
   }
 
+  componentDidUpdate() {
+    setTimeout(() => { this.props.indexGetter(this.state.currentIndex) }, 10)
+  }
   // componentDidUpdate(prevState) {
   //   if (this.state.currentIndex !== prevState.currentIndex) {
   //     this.setState({
@@ -145,7 +147,7 @@ class Carousel extends React.Component {
 
   render() {
     // console.log(this.state.currentIndex)
-    console.log(this.state.url)
+    // console.log(this.state.url)
     if (this.state.lists === null) {
 
       return (
