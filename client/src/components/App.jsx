@@ -50,11 +50,12 @@ class App extends React.Component {
         this.state = {
             list: null,
             isOpen: false,
-            currentIndex: 4
+            currentIndex: 0
         }
 
         this.zoomHandler = this.zoomHandler.bind(this)
         this.indexGetter = this.indexGetter.bind(this)
+
     }
 
     componentDidMount() {
@@ -104,8 +105,8 @@ class App extends React.Component {
                     </div>
                 )
             } else {
-                console.log('index!?!? -----', this.state.currentIndex)
-                console.log('list exist?!?!?', this.state.list[0].imageSrc.length)
+                // console.log('index!?!? -----', this.state.currentIndex)
+                // console.log('list exist?!?!?', this.state.list[0].imageSrc.length)
                 return (
                     <div>
                         <StyledCloseButton onClick={() => { this.zoomHandler() }}>
