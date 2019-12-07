@@ -1,10 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledStarOuter = styled.svg`
-    position: relative;
-    display: inline-block;
 
+const StyledReviewCount = styled.span`
+color: #0058a3;
+:hover {
+    text-decoration: underline;
+  }
+`
+
+const StyledRating = styled.span`
+padding-right: 0.5rem;
+font-size: 17px;
+`
+
+const StyledReviewComponent = styled.a`
+cursor: pointer;
 `
 
 class StarReview extends React.Component {
@@ -70,9 +81,23 @@ class StarReview extends React.Component {
     render() {
 
         return (
-            <div width="150">
-                {this.state.container}
-            </div>)
+            <StyledReviewComponent>
+
+                <span>
+                    {this.state.container}
+                </span>
+                <StyledRating>
+                    {this.props.rating}
+                </StyledRating>
+
+                <StyledReviewCount>
+                    {this.props.reviewNum} Reviews
+                </StyledReviewCount>
+
+
+            </StyledReviewComponent>
+
+        )
 
     }
 }
