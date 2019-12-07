@@ -65,13 +65,6 @@ class Carousel extends React.Component {
   componentDidUpdate() {
     setTimeout(() => { this.props.indexGetter(this.state.currentIndex) }, 10)
   }
-  // componentDidUpdate(prevState) {
-  //   if (this.state.currentIndex !== prevState.currentIndex) {
-  //     this.setState({
-  //       url: this.state.lists[0].imageSrc[this.state.currentIndex]
-  //     })
-  //   }
-  // }
 
   getProductData() {
     axios.get('/ikea').then((response) => {
@@ -138,12 +131,6 @@ class Carousel extends React.Component {
     })
   }
 
-  // urlChanger() {
-
-  //   this.setState({
-  //     url: this.state.lists[0].imageSrc[this.state.currentIndex]
-  //   })
-  // }
 
   render() {
     // console.log(this.state.currentIndex)

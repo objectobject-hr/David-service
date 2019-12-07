@@ -34,6 +34,4 @@ const ProductDetail = (props) => (
 
 )
 
-
-
 export default ProductDetail;
