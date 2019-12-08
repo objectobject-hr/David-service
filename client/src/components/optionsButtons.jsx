@@ -1,17 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
-    color: white;
-    height: 30px;
-    width: 30px;
-`
-const StyledQuantity = styled.div`
-border: 1px solid #959595;
-border-radius: 2px;
-height: 48px;
-width: 144px;
-`
 const StyledShoppingBagButton = styled.button`
 background: #0058a3;
 color: #fff;
@@ -67,29 +56,197 @@ viewBox: 0 0 24 24;
     margin-right: .5rem;
 `
 
+const StyledQuantityDiv = styled.div`
+margin-bottom: 1rem;
+-webkit-box-pack: justify;
+justify-content: space-between;
+-webkit-box-align: center;
+align-items: center;
+display: flex;
+visibility: visible;
+`
+
+const StyledQuantityInput = styled.div`
+width: 9rem;
+    position: relative;
+    display: block;
+`
+
+const StyledMinusButton = styled.button`
+padding: .6rem;
+position: absolute;
+    top: 50%;
+    left:1%;
+    transform: translateY(-50%);
+    -webkit-appearance: button;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    border: 0;
+    font-weight: 700;
+    font-size: .875rem;
+    line-height: 1.7143;
+    transition-property: background-color,border-radius,width;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+`
+
+const StyledMinusSpan = styled.span`
+text-align: center;
+font-weight: 700;
+    font-size: .875rem;
+    line-height: 1.7143;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+`
+
+const StyledMinusSvg = styled.svg`
+display: inline-block;
+height: 1.5rem;
+width: 1.5rem;
+vertical-align: top;
+cursor: pointer;
+text-align: center;
+font-weight: 700;
+    font-size: .875rem;
+    line-height: 1.7143;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    focusable:false;
+    viewBox:0 0 24 24;
+`
+
+const StyledInput = styled.input`
+text-align: center;
+font-family: inherit;
+    font-size: 1rem;
+max-width: 100%;
+padding: 1rem 0.05rem;
+display: block;
+width: 100%;
+margin: 0;
+outline: 0;
+border: 1px solid #959595;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px transparent;
+`
+
+const StyledPlusButton = styled.button`
+padding: .6rem;
+position: absolute;
+    top: 50%;
+    left: 72%;
+    transform: translateY(-50%);
+    -webkit-appearance: button;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    border: 0;
+    font-weight: 700;
+    font-size: .875rem;
+    line-height: 1.7143;
+    transition-property: background-color,border-radius,width;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+
+`
+
+const StyledPlusSpan = styled.span`
+text-align: center;
+font-weight: 700;
+    font-size: .875rem;
+    line-height: 1.7143;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+`
+
+const StyledPlusSvg = styled.svg`
+display: inline-block;
+height: 1.5rem;
+width: 1.5rem;
+vertical-align: top;
+cursor: pointer;
+text-align: center;
+font-weight: 700;
+    font-size: .875rem;
+    line-height: 1.7143;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    focusable:false;
+    viewBox:0 0 24 24;
+`
 class OptionButtons extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            quantity: 1
+        }
+        this.increaseQuantity = this.increaseQuantity.bind(this)
+        this.decreaseQuantity = this.decreaseQuantity.bind(this)
+    }
+
+    increaseQuantity(e) {
+        e.preventDefault()
+        this.setState(prevState => ({
+            quantity: prevState.quantity + 1
+        }))
+    }
+
+    decreaseQuantity(e) {
+        e.preventDefault()
+        if (this.state.quantity > 0) {
+            this.setState(prevState => ({
+                quantity: prevState.quantity - 1
+            }))
+        }
     }
 
     render() {
         return (
             <form>
-                <div><label>Quantity </label>
-                    <StyledQuantity>
-                        <StyledButton>
-                            <svg>
-                                <path d="M7,11H17v2H7Z" />
-                            </svg>
-                        </StyledButton>
-                        <input type="number" pattern="[0-9]*" id="amount" aria-label="quantity" value="1" min="1" max="999" />
-                        <StyledButton>
-                            <svg>
-                                <path d="M13,11V7H11v4H7v2h4v4h2V13h4V11Z" />
-                            </svg>
-                        </StyledButton>
-                    </StyledQuantity>
-                </div >
+                <StyledQuantityDiv>
+                    <label>Quantity</label>
+                    <div >
+                        <StyledQuantityInput>
+                            <StyledMinusButton onClick={(e) => { this.decreaseQuantity(e) }}>
+
+                                <StyledMinusSpan>
+                                    <StyledMinusSvg><path d="M7,11H17v2H7Z"></path></StyledMinusSvg>
+                                </StyledMinusSpan>
+
+                            </StyledMinusButton>
+                            <StyledInput pattern="[0-9]*" value={this.state.quantity} min="1" max="999" />
+                            <StyledPlusButton onClick={(e) => { this.increaseQuantity(e) }}>
+                                <StyledPlusSpan>
+                                    <StyledPlusSvg ><path d="M13,11V7H11v4H7v2h4v4h2V13h4V11Z"></path>
+                                    </StyledPlusSvg>
+                                </StyledPlusSpan>
+                            </StyledPlusButton>
+                        </StyledQuantityInput>
+                    </div>
+
+                </StyledQuantityDiv>
                 < StyledShoppingBagButton>
                     <span >
                         < StyledShoppingBagIcon>
@@ -107,7 +264,7 @@ class OptionButtons extends React.Component {
                         <span>Add to shopping list</span>
                     </span>
                 </StyledShoppingListButton>
-            </form>
+            </form >
         )
     }
 }

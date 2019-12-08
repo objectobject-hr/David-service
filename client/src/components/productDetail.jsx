@@ -22,7 +22,7 @@ const ProductDetail = (props) => (
                 </span>
             </div>
             <br />
-            <span style={{ 'padding-right': '0.5rem' }}>{props.data.midDesc}</span>
+            <span >{props.data.midDesc}</span>
             <StyledReadMore>
                 Read More
                 </StyledReadMore>

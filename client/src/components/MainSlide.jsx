@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledImg = styled.image`
+const StyledImg = styled.div`
     padding-left: 150px;
     padding-right: 150px;
 `;
