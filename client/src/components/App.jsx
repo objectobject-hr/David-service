@@ -4,7 +4,8 @@ import ProductDetail from './productDetail.jsx';
 import OptionButtons from './optionsButtons.jsx';
 import axios from 'axios'
 import styled from 'styled-components';
-import ZoomImages from './zoomImages.jsx'
+import ZoomImages from './zoomImages.jsx';
+import AvailableOptions from './AvailableOptions.jsx';
 
 const StyledProductDetail = styled.div`
 width: 25rem;
@@ -100,6 +101,7 @@ class App extends React.Component {
                                     <ProductDetail data={this.state.list[0]} />
                                 </div><br />
                                 <div><OptionButtons /></div>
+                                <div><AvailableOptions /></div>
                             </StyledProductDetail>
                         </StyledBody>
                     </div>
@@ -114,14 +116,12 @@ class App extends React.Component {
                                 <path fill-rule="evenodd" d="M17.597 5l-5.592 5.592L6.414 5 5 6.415l5.591 5.591L5 17.597l1.414 1.414 5.591-5.592 5.592 5.592 1.414-1.414-5.592-5.591 5.592-5.591z" />
                             </svg>
                         </StyledCloseButton>
-                        {/* <StyledSlider style={{ 'transform': `translateY(-${0 * (100 / this.state.list[0].imageSrc.length)}%)` }}> */}
                         <StyledZoomImage style={{ 'transform': `translateY(-${this.state.currentIndex * (100 / this.state.list[0].imageSrc.length)}%)` }}>
 
                             {this.state.list[0].imageSrc.map((img, i) => (
                                 < ZoomImages list={img} key={i} />
                             ))}
                         </StyledZoomImage>
-                        {/* </StyledSlider> */}
                     </div>
                 )
             }
