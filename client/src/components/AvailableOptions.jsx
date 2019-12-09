@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import DeliveryButton from './deliveryButton.jsx';
 
 const StyledAssemblyBox = styled.div`
 cursor: pointer;
@@ -76,6 +77,9 @@ class AvailableOptions extends React.Component {
                         </div>
                     </StyledAssemblyBox>
                 </div>
+                <div>
+                    <DeliveryButton />
+                </div>
                 {/* <div class="range-accordion range-accordion--collapsed">
                     <button class="range-accordion__header" aria-expanded="false" aria-controls="range-accordion-mini-delivery">
                         <span class="range-mini-delivery__header">
@@ -94,7 +98,9 @@ class AvailableOptions extends React.Component {
                         </svg>
                     </button>
                     <div id="range-accordion-mini-delivery" class="range-accordion__content" aria-hidden="true">
-                        <span>Add to cart for delivery details.</span></div></div>
+                        <span>Add to cart for delivery details.</span>
+                    </div>
+                </div>
                 <div class="range-accordion ">
                     <div class="range-accordion__header">
                         <div class="range-mini-stock__header">
