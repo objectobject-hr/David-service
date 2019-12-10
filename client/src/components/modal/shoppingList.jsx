@@ -67,6 +67,9 @@ line-height: 1.7143;
 transition-duration: .3s;
 transition-timing-function: cubic-bezier(.4,0,0,1);
 width: 85%;
+:hover {
+    background-color: #2c75b3
+  }
 `
 
 export default class ShoppingList extends React.Component {

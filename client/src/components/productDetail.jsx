@@ -25,7 +25,7 @@ const ProductDetail = (props) => (
             <span >{props.data.midDesc}</span>
             <StyledReadMore>
                 Read More
-                </StyledReadMore>
+            </StyledReadMore>
         </div>
         <div>
 

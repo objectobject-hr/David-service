@@ -91,7 +91,7 @@ class App extends React.Component {
             if (!this.state.isOpen) {
 
                 return (
-                    <div>
+                    <div style={{ fontFamily: `'Noto Sans', sans-serif` }}>
                         <StyledBody>
                             <div>
                                 <Carousel indexGetter={this.indexGetter} zoom={this.zoomHandler} />
