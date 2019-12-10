@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledOuterMostDiv = styled.div`
 font-size: .875rem;
-line-height: 1.125rem;
+line-height: 2rem;
 cursor: pointer;
 background-color: #fff;
 `
@@ -75,6 +75,8 @@ line-height: 1.125rem;
 border-bottom: 1px solid #ccc;
 `
 
+
+
 class DeliveryButton extends React.Component {
     constructor(props) {
         super(props)
@@ -92,7 +94,7 @@ class DeliveryButton extends React.Component {
     render() {
         if (this.state.clicked === false) {
             return (
-                <StyledOuterMostDiv style={{ 'border-bottom': '1px solid #ccc' }}>
+                <StyledOuterMostDiv style={{ 'borderBottom': '1px solid #ccc' }}>
                     <StyledDiv onClick={() => { this.deliveryHandler() }}>
                         <StyledSpan>
                             <StyledSvg>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ShoppingList from './modal/shoppingList.jsx';
 
 const StyledShoppingBagButton = styled.button`
 background: #0058a3;
@@ -214,10 +215,12 @@ class OptionButtons extends React.Component {
         super(props)
 
         this.state = {
-            quantity: 1
+            quantity: 1,
+            listShow: false
         }
         this.increaseQuantity = this.increaseQuantity.bind(this)
         this.decreaseQuantity = this.decreaseQuantity.bind(this)
+        this.showModal = this.showModal.bind(this)
     }
 
     increaseQuantity(e) {
@@ -236,53 +239,66 @@ class OptionButtons extends React.Component {
         }
     }
 
+    showModal(e) {
+        e.preventDefault()
+        this.setState({
+            listShow: !this.state.listShow
+        });
+    };
+
     render() {
         return (
-            <form >
-                <StyledQuantityDiv>
-                    <label>Quantity</label>
-                    <div >
-                        <StyledQuantityInput>
-                            <StyledMinusButton onClick={(e) => { this.decreaseQuantity(e) }}>
+            <div>
 
-                                <StyledMinusSpan>
-                                    <StyledMinusSvg><path d="M7,11H17v2H7Z"></path></StyledMinusSvg>
-                                </StyledMinusSpan>
+                <form >
+                    <StyledQuantityDiv>
+                        <label>Quantity</label>
+                        <div >
+                            <StyledQuantityInput>
+                                <StyledMinusButton onClick={(e) => { this.decreaseQuantity(e) }}>
 
-                            </StyledMinusButton>
-                            <StyledInput pattern="[0-9]*" value={this.state.quantity} min="1" max="999" />
-                            <StyledPlusButton onClick={(e) => { this.increaseQuantity(e) }}>
-                                <StyledPlusSpan>
-                                    <StyledPlusSvg ><path d="M13,11V7H11v4H7v2h4v4h2V13h4V11Z"></path>
-                                    </StyledPlusSvg>
-                                </StyledPlusSpan>
-                            </StyledPlusButton>
-                        </StyledQuantityInput>
-                    </div>
+                                    <StyledMinusSpan>
+                                        <StyledMinusSvg><path d="M7,11H17v2H7Z"></path></StyledMinusSvg>
+                                    </StyledMinusSpan>
 
-                </StyledQuantityDiv>
-                <StyledMarginDiv>
-                    < StyledShoppingBagButton>
-                        <span >
-                            < StyledShoppingBagIcon>
-                                <path d="M20 15h2v2h-2v2h-2v-2h-2v-2h2v-2h2zm-6 2H6.441l-1.666-6h16.558L22 9h-5.323l-1.245-3.114L12.646 4h-1.292L8.569 5.886 7.322 9H2l2.544 8.633A2 2 0 0 0 6.441 19H14zM10.677 6h2.646l1.2 3H9.477z">
-                                </path>
-                            </StyledShoppingBagIcon>
-                            <span>Add to shopping bag</span>
-                        </span>
-                    </StyledShoppingBagButton>
-                </StyledMarginDiv>
-                <StyledMarginDiv>
-                    <StyledShoppingListButton>
-                        <span >
-                            <StyledShoppingList>
-                                <path d="M18,18h2v2H18v2H16V20H14V18h2V16h2ZM12,6H6V8h6ZM6,12H8V10H6ZM4,4H14l2-2H2V22H12V20H4ZM5.77,18.29l4.66-2.05L22,4.66,19.34,2,7.72,13.73Z"></path>
-                            </StyledShoppingList>
-                            <span>Add to shopping list</span>
-                        </span>
-                    </StyledShoppingListButton>
-                </StyledMarginDiv>
-            </form >
+                                </StyledMinusButton>
+                                <StyledInput pattern="[0-9]*" value={this.state.quantity} min="1" max="999" />
+                                <StyledPlusButton onClick={(e) => { this.increaseQuantity(e) }}>
+                                    <StyledPlusSpan>
+                                        <StyledPlusSvg ><path d="M13,11V7H11v4H7v2h4v4h2V13h4V11Z"></path>
+                                        </StyledPlusSvg>
+                                    </StyledPlusSpan>
+                                </StyledPlusButton>
+                            </StyledQuantityInput>
+                        </div>
+
+                    </StyledQuantityDiv>
+                    <StyledMarginDiv>
+                        < StyledShoppingBagButton>
+                            <span >
+                                < StyledShoppingBagIcon>
+                                    <path d="M20 15h2v2h-2v2h-2v-2h-2v-2h2v-2h2zm-6 2H6.441l-1.666-6h16.558L22 9h-5.323l-1.245-3.114L12.646 4h-1.292L8.569 5.886 7.322 9H2l2.544 8.633A2 2 0 0 0 6.441 19H14zM10.677 6h2.646l1.2 3H9.477z">
+                                    </path>
+                                </StyledShoppingBagIcon>
+                                <span>Add to shopping bag</span>
+                            </span>
+                        </StyledShoppingBagButton>
+                    </StyledMarginDiv>
+                    <StyledMarginDiv>
+                        <StyledShoppingListButton onClick={e => { this.showModal(e); }}>
+                            <span >
+                                <StyledShoppingList>
+                                    <path d="M18,18h2v2H18v2H16V20H14V18h2V16h2ZM12,6H6V8h6ZM6,12H8V10H6ZM4,4H14l2-2H2V22H12V20H4ZM5.77,18.29l4.66-2.05L22,4.66,19.34,2,7.72,13.73Z"></path>
+                                </StyledShoppingList>
+                                <span>Add to shopping list</span>
+                            </span>
+                        </StyledShoppingListButton>
+                    </StyledMarginDiv>
+                </form >
+                <div>
+                    <ShoppingList onClose={this.showModal} show={this.state.listShow} ></ShoppingList>
+                </div>
+            </div>
         )
     }
 }
