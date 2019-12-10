@@ -44,6 +44,48 @@ right: 265px;
 transition: transform;
 `
 
+const StyledCategories = styled.div`
+margin: 0 auto;
+    max-width: 1400px;
+    padding: 0 1rem .8rem;
+    font-size: .75rem;
+    line-height: 1.3334;
+`
+
+const StyledOl = styled.ol`
+padding-left: 0;
+list-style-type: none;
+display: inline-block;
+margin: 0;
+width: 100%;
+line-height: 2;
+margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    font-size: .75rem;
+`
+
+const StyledLi = styled.li`
+display: inline;
+max-width: 100%;
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+    padding-left: 0;
+    margin-bottom: 0
+    line-height: 2;
+    cursor: pointer;
+:hover {
+    text-decoration: underline;
+  }
+`
+
+const StyledSlash = styled.span`
+padding-left: 8px;
+padding-right: 8px;
+`
+
 class App extends React.Component {
     constructor(props) {
         super(props)
@@ -88,10 +130,34 @@ class App extends React.Component {
         if (this.state.list === null) {
             return null
         } else {
+            console.log(this.state.list[0].name)
             if (!this.state.isOpen) {
 
                 return (
                     <div style={{ fontFamily: `'Noto Sans', sans-serif` }}>
+                        <StyledCategories>
+                            <StyledOl>
+                                <StyledLi>
+                                    Home
+                                </StyledLi>
+                                <StyledSlash>/</StyledSlash>
+                                <StyledLi>
+                                    Products
+                                </StyledLi>
+                                <StyledSlash>/</StyledSlash>
+                                <StyledLi>
+                                    Furniture
+                                </StyledLi>
+                                <StyledSlash>/</StyledSlash>
+                                <StyledLi>
+                                    Tables & desks
+                                </StyledLi>
+                                <StyledSlash>/</StyledSlash>
+                                <StyledLi>
+                                    {this.state.list[0].name} {this.state.list[0].shortDesc.split(',')[0]}
+                                </StyledLi>
+                            </StyledOl>
+                        </StyledCategories>
                         <StyledBody>
                             <div>
                                 <Carousel indexGetter={this.indexGetter} zoom={this.zoomHandler} />

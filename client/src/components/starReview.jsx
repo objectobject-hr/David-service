@@ -102,7 +102,7 @@ class StarReview extends React.Component {
                     {this.state.container}
                 </span>
                 <StyledRating>
-                    {this.props.rating}
+                    {Math.round(10 * this.props.rating) / 10}
                 </StyledRating>
 
                 <StyledReviewCount>
