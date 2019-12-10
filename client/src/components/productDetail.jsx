@@ -8,6 +8,13 @@ color: #0058a3;
 cursor: pointer;
 `
 
+const StyledReviewCount = styled.span`
+color: #0058a3;
+:hover {
+    text-decoration: underline;
+  }
+`
+
 const ProductDetail = (props) => (
     <div>
         <div>
@@ -20,6 +27,9 @@ const ProductDetail = (props) => (
                 <span>
                     <StarReview rating={props.data.rating} reviewNum={props.data.reviewNum} />
                 </span>
+                <StyledReviewCount>
+                    {props.data.reviewNum} Reviews
+                </StyledReviewCount>
             </div>
             <br />
             <span >{props.data.midDesc}</span>

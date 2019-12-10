@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ShoppingList from './modal/shoppingList.jsx';
+import ShoppingBagModal from './modal/shoppingBagModal.jsx';
 
 const StyledShoppingBagButton = styled.button`
 background: #0058a3;
@@ -215,8 +216,10 @@ class OptionButtons extends React.Component {
         super(props)
 
         this.state = {
+            data: this.props.data,
             quantity: 1,
-            listShow: false
+            listShow: false,
+            bagShow: false
         }
         this.increaseQuantity = this.increaseQuantity.bind(this)
         this.decreaseQuantity = this.decreaseQuantity.bind(this)
@@ -246,7 +249,15 @@ class OptionButtons extends React.Component {
         });
     };
 
+    showBagModal(e) {
+        e.preventDefault()
+        this.setState({
+            bagShow: !this.state.bagShow
+        });
+    }
+
     render() {
+
         return (
             <div>
 
@@ -274,7 +285,7 @@ class OptionButtons extends React.Component {
 
                     </StyledQuantityDiv>
                     <StyledMarginDiv>
-                        < StyledShoppingBagButton>
+                        < StyledShoppingBagButton onClick={e => { this.showBagModal(e); }}>
                             <span >
                                 < StyledShoppingBagIcon>
                                     <path d="M20 15h2v2h-2v2h-2v-2h-2v-2h2v-2h2zm-6 2H6.441l-1.666-6h16.558L22 9h-5.323l-1.245-3.114L12.646 4h-1.292L8.569 5.886 7.322 9H2l2.544 8.633A2 2 0 0 0 6.441 19H14zM10.677 6h2.646l1.2 3H9.477z">
@@ -295,6 +306,9 @@ class OptionButtons extends React.Component {
                         </StyledShoppingListButton>
                     </StyledMarginDiv>
                 </form >
+                <div>
+                    <ShoppingBagModal data={this.state.data} onClose={this.showBagModal} show={this.state.bagShow}></ShoppingBagModal>
+                </div>
                 <div>
                     <ShoppingList onClose={this.showModal} show={this.state.listShow} ></ShoppingList>
                 </div>

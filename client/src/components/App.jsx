@@ -130,7 +130,6 @@ class App extends React.Component {
         if (this.state.list === null) {
             return null
         } else {
-            console.log(this.state.list[0].name)
             if (!this.state.isOpen) {
 
                 return (
@@ -166,7 +165,7 @@ class App extends React.Component {
                                 <div>
                                     <ProductDetail data={this.state.list[0]} />
                                 </div><br />
-                                <div><OptionButtons /></div>
+                                <div><OptionButtons data={this.state.list} /></div>
                                 <div><AvailableOptions /></div>
                             </StyledProductDetail>
                         </StyledBody>

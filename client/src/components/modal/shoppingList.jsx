@@ -78,11 +78,9 @@ export default class ShoppingList extends React.Component {
         if (!this.props.show) {
             return null;
         }
-
         return (
             <StyledBackDrop>
                 <StyledModalStyle>
-
                     <StyledCloseButton onClick={this.props.onClose}>
                         <svg viewBox="0 0 24 24">
                             <path d="M13.45,12,16.71,8.7,15.29,7.3,12,10.59,8.74,7.32,7.33,8.75,10.62,12,7.36,15.3l1.42,1.4L12,13.41l3.32,3.26,1.41-1.42Z"></path>
@@ -94,11 +92,8 @@ export default class ShoppingList extends React.Component {
                             <StyledListButton>View your shopping list</StyledListButton>
                         </div>
                     </StyledMainPopup>
-
                 </StyledModalStyle>
-
             </StyledBackDrop>
-
         );
     }
 }
@@ -106,5 +101,4 @@ export default class ShoppingList extends React.Component {
 ShoppingList.propTypes = {
     onClose: PropTypes.func.isRequired,
     show: PropTypes.bool,
-    children: PropTypes.node
 };
