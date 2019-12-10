@@ -14,23 +14,21 @@ var ikeaSchema = new mongoose.Schema({
   rating: Number,
   reviewNum: Number,
   midDesc: String,
-  imageSrc: [{
-    type: String
-  }]
+  imageSrc: [String]
 });
 
 var IkeaImgs = mongoose.model('IkeaImgs', ikeaSchema);
 
-var save = (req, callback) => {
+var save = (data, callback) => {
 
   IkeaImgs.create({
-    name: req.body.name,
-    shortDesc: req.body.shortDesc,
-    price: req.body.price,
-    rating: req.body.rating,
-    reviewNum: req.body.reviewNum,
-    midDesc: req.body.midDesc,
-    imageSrc: req.body.imageSrc
+    name: data.name,
+    shortDesc: data.shortDesc,
+    price: data.price,
+    rating: data.rating,
+    reviewNum: data.reviewNum,
+    midDesc: data.midDesc,
+    imageSrc: data.imageSrc
   }, (err, results) => {
     if (err) {
       callback(err)
