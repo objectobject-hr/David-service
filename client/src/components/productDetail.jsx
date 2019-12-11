@@ -25,7 +25,7 @@ const ProductDetail = (props) => (
             <div><h1>${props.data.price}.00</h1></div>
             <div display="flex">
                 <span>
-                    <StarReview rating={props.data.rating} reviewNum={props.data.reviewNum} />
+                    <StarReview rating={props.data.rating} reviewNum={props.data.reviewNum} key={props.data._id} />
                 </span>
                 <StyledReviewCount>
                     {props.data.reviewNum} Reviews

@@ -130,6 +130,7 @@ class App extends React.Component {
         if (this.state.list === null) {
             return null
         } else {
+
             if (!this.state.isOpen) {
 
                 return (
@@ -183,8 +184,8 @@ class App extends React.Component {
                         </StyledCloseButton>
                         <StyledZoomImage style={{ 'transform': `translateY(-${this.state.currentIndex * (100 / this.state.list[0].imageSrc.length)}%)` }}>
 
-                            {this.state.list[0].imageSrc.map((img, i) => (
-                                < ZoomImages list={img} key={i} />
+                            {this.state.list[0].imageSrc.map((img) => (
+                                < ZoomImages list={img} key={img._id} />
                             ))}
                         </StyledZoomImage>
                     </div>

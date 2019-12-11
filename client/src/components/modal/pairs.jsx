@@ -8,6 +8,7 @@ const StyledImg = styled.img`
     display: block;
     transition-duration: .3s;
 transition-timing-function: cubic-bezier(0.4, 0, 0, 1);
+cursor: pointer;
     :hover {
         transform: scale(1.05);
       }
@@ -24,18 +25,28 @@ position: relative;
 
 const StyledMainInnerDiv = styled.div`
 -webkit-font-smoothing: antialiased;
-    max-width: 30rem;
-    vertical-align: middle;
-    font-size: 1rem;
-    line-height: 1.5;
-    word-break: break-word;
+max-width: 30rem;
+vertical-align: middle;
+font-size: 1rem;
+line-height: 1.5;
+word-break: break-word;
+:hover{
+    .productImage{
+        transform: scale(1.05);
+    }
+    .productName{
+        text-decoration: underline;
+    }
+}
 `
 
 const StyledName = styled.div`
+cursor: pointer;
 font-weight: 700;
 `
 
 const StyledPrice = styled.div`
+cursor: pointer;
 font-weight: 700;
 font-size: 1.5rem;
 `
@@ -97,9 +108,9 @@ const Pairs = (props) => (
     <StyledMainOuterDiv>
         <StyledMainInnerDiv>
 
-            <StyledImg src={props.data.imageSrc[0]} />
-            <StyledName>{props.data.name}</StyledName>
-            <div>{props.data.shortDesc.split(',')[0]}, {props.data.shortDesc.split(',')[1]}</div>
+            <StyledImg className="productImage" src={props.data.imageSrc[0]} />
+            <StyledName className="productName">{props.data.name}</StyledName>
+            <div style={{ cursor: 'pointer' }}>{props.data.shortDesc.split(',')[0]}, {props.data.shortDesc.split(',')[1]}</div>
             <StyledPrice>${props.data.price}.00</StyledPrice>
 
             <span><StarReview rating={props.data.rating} reviewNum={props.data.reviewNum} /></span>

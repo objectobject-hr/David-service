@@ -1,14 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const StyledReviewCount = styled.span`
-color: #0058a3;
-:hover {
-    text-decoration: underline;
-  }
-`
-
 const StyledRating = styled.span`
 padding-right: 0.5rem;
 font-size: 17px;
