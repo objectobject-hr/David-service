@@ -139,10 +139,6 @@ font-weight: 700;
 `
 
 const StyledHiddenMsg = styled.div`
-margin-bottom: 1rem;
-max-height: 5em;
-opacity: 1;
-padding-top: .5em;
 align-items: center;
 color: #666;
 display: flex;
@@ -166,9 +162,8 @@ class QuantityForm extends React.Component {
         super()
 
         this.state = {
-            quantity: 1
+            quantity: 1,
         }
-
         this.increaseQuantity = this.increaseQuantity.bind(this)
         this.decreaseQuantity = this.decreaseQuantity.bind(this)
         this.quantityHandler = this.quantityHandler.bind(this)
@@ -190,8 +185,6 @@ class QuantityForm extends React.Component {
                 quantity: prevState.quantity - 1
             }))
         }
-
-
     }
 
     quantityHandler(e) {
@@ -203,7 +196,7 @@ class QuantityForm extends React.Component {
     }
 
     render() {
-        if (this.state.quantity <= 0) {
+        if (this.state.quantity <= 1) {
             return (
                 <div>
                     <StyledQuantityDiv>
@@ -211,13 +204,11 @@ class QuantityForm extends React.Component {
                         <div >
                             <StyledQuantityInput>
                                 <StyledMinusButton onClick={(e) => { this.decreaseQuantity(e) }}>
-
                                     <StyledMinusSpan>
                                         <StyledMinusSvg style={{
                                             opacity: '.4',
                                         }}><path d="M7,11H17v2H7Z"></path></StyledMinusSvg>
                                     </StyledMinusSpan>
-
                                 </StyledMinusButton>
                                 <StyledInput value={this.state.quantity} onChange={(e) => { this.quantityHandler(e) }} />
                                 <StyledPlusButton onClick={(e) => { this.increaseQuantity(e) }}>
@@ -229,7 +220,12 @@ class QuantityForm extends React.Component {
                             </StyledQuantityInput>
                         </div>
                     </StyledQuantityDiv>
-                    <StyledHiddenMsg>
+                    <StyledHiddenMsg style={{
+                        marginBottom: `${this.state.quantity <= 0 ? '1rem' : '0rem'}`,
+                        maxHeight: `${this.state.quantity <= 0 ? '5em' : '0em'}`,
+                        opacity: `${this.state.quantity <= 0 ? '1' : '0'}`,
+                        paddingTop: `${this.state.quantity <= 0 ? '0.5em' : '0em'}`
+                    }} >
                         <StyledHiddenSpan><svg viewBox="0 0 16 16">
                             <g >
                                 <path fill="#E00751" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
@@ -239,9 +235,31 @@ class QuantityForm extends React.Component {
                         </StyledHiddenSpan>
                         Please enter a quantity between 1-999
                     </StyledHiddenMsg>
-                </div>
+                </div >
             )
-        } else if (this.state.quantity >= 1000) {
+        } else if (1 < this.state.quantity && this.state.quantity < 999) {
+            return (
+                <StyledQuantityDiv>
+                    <label>Quantity</label>
+                    <div >
+                        <StyledQuantityInput>
+                            <StyledMinusButton onClick={(e) => { this.decreaseQuantity(e) }}>
+                                <StyledMinusSpan>
+                                    <StyledMinusSvg><path d="M7,11H17v2H7Z"></path></StyledMinusSvg>
+                                </StyledMinusSpan>
+                            </StyledMinusButton>
+                            <StyledInput value={this.state.quantity} onChange={(e) => { this.quantityHandler(e) }} />
+                            <StyledPlusButton onClick={(e) => { this.increaseQuantity(e) }}>
+                                <StyledPlusSpan>
+                                    <StyledPlusSvg ><path d="M13,11V7H11v4H7v2h4v4h2V13h4V11Z"></path>
+                                    </StyledPlusSvg>
+                                </StyledPlusSpan>
+                            </StyledPlusButton>
+                        </StyledQuantityInput>
+                    </div>
+                </StyledQuantityDiv>
+            )
+        } else if (this.state.quantity >= 999) {
             return (
                 <div>
                     <StyledQuantityDiv>
@@ -265,7 +283,12 @@ class QuantityForm extends React.Component {
                             </StyledQuantityInput>
                         </div>
                     </StyledQuantityDiv>
-                    <StyledHiddenMsg>
+                    <StyledHiddenMsg style={{
+                        marginBottom: `${this.state.quantity >= 1000 ? '1rem' : '0rem'}`,
+                        maxHeight: `${this.state.quantity >= 1000 ? '5em' : '0em'}`,
+                        opacity: `${this.state.quantity >= 1000 ? '1' : '0'}`,
+                        paddingTop: `${this.state.quantity >= 1000 ? '0.5em' : '0em'}`
+                    }}>
                         <StyledHiddenSpan><svg viewBox="0 0 16 16">
                             <g >
                                 <path fill="#E00751" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
@@ -276,80 +299,6 @@ class QuantityForm extends React.Component {
                         Please enter a quantity between 1-999
                     </StyledHiddenMsg>
                 </div>
-            )
-        } else if (this.state.quantity <= 1) {
-            return (
-                <StyledQuantityDiv>
-                    <label>Quantity</label>
-                    <div >
-                        <StyledQuantityInput>
-                            <StyledMinusButton onClick={(e) => { this.decreaseQuantity(e) }}>
-
-                                <StyledMinusSpan>
-                                    <StyledMinusSvg style={{
-                                        opacity: '.4',
-                                    }}><path d="M7,11H17v2H7Z"></path></StyledMinusSvg>
-                                </StyledMinusSpan>
-
-                            </StyledMinusButton>
-                            <StyledInput value={this.state.quantity} onChange={(e) => { this.quantityHandler(e) }} />
-                            <StyledPlusButton onClick={(e) => { this.increaseQuantity(e) }}>
-                                <StyledPlusSpan>
-                                    <StyledPlusSvg ><path d="M13,11V7H11v4H7v2h4v4h2V13h4V11Z"></path>
-                                    </StyledPlusSvg>
-                                </StyledPlusSpan>
-                            </StyledPlusButton>
-                        </StyledQuantityInput>
-                    </div>
-                </StyledQuantityDiv>
-            )
-        } else if (1 < this.state.quantity && this.state.quantity < 999) {
-            return (
-                <StyledQuantityDiv>
-                    <label>Quantity</label>
-                    <div >
-                        <StyledQuantityInput>
-                            <StyledMinusButton onClick={(e) => { this.decreaseQuantity(e) }}>
-
-                                <StyledMinusSpan>
-                                    <StyledMinusSvg><path d="M7,11H17v2H7Z"></path></StyledMinusSvg>
-                                </StyledMinusSpan>
-
-                            </StyledMinusButton>
-                            <StyledInput value={this.state.quantity} onChange={(e) => { this.quantityHandler(e) }} />
-                            <StyledPlusButton onClick={(e) => { this.increaseQuantity(e) }}>
-                                <StyledPlusSpan>
-                                    <StyledPlusSvg ><path d="M13,11V7H11v4H7v2h4v4h2V13h4V11Z"></path>
-                                    </StyledPlusSvg>
-                                </StyledPlusSpan>
-                            </StyledPlusButton>
-                        </StyledQuantityInput>
-                    </div>
-                </StyledQuantityDiv>
-            )
-        } else if (this.state.quantity = 999) {
-            return (
-                <StyledQuantityDiv>
-                    <label>Quantity</label>
-                    <div >
-                        <StyledQuantityInput>
-                            <StyledMinusButton onClick={(e) => { this.decreaseQuantity(e) }}>
-
-                                <StyledMinusSpan>
-                                    <StyledMinusSvg ><path d="M7,11H17v2H7Z"></path></StyledMinusSvg>
-                                </StyledMinusSpan>
-
-                            </StyledMinusButton>
-                            <StyledInput value={this.state.quantity} onChange={(e) => { this.quantityHandler(e) }} />
-                            <StyledPlusButton onClick={(e) => { this.increaseQuantity(e) }}>
-                                <StyledPlusSpan>
-                                    <StyledPlusSvg style={{ opacity: '.4' }}><path d="M13,11V7H11v4H7v2h4v4h2V13h4V11Z"></path>
-                                    </StyledPlusSvg>
-                                </StyledPlusSpan>
-                            </StyledPlusButton>
-                        </StyledQuantityInput>
-                    </div>
-                </StyledQuantityDiv>
             )
         }
 
