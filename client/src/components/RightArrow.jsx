@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 let StyledArrow = styled.svg`
 position: absolute;
-    top: 22rem;
+    top: 27rem;
     right: 48rem;
     cursor: pointer;
     height: 22px;

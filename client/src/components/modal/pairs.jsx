@@ -6,7 +6,6 @@ const StyledImg = styled.img`
     width: 180px;
     height: 180px;
     display: block;
-    margin: 0 auto;
     transition-duration: .3s;
 transition-timing-function: cubic-bezier(0.4, 0, 0, 1);
     :hover {

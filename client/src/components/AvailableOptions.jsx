@@ -41,7 +41,6 @@ const StyledATag = styled.span`
 font-size: 0.9em;
 margin-top: .5rem;
 color: #0058a3;
-position: absolute;
 text-decoration: underline;
 `
 

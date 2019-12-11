@@ -32,14 +32,14 @@ const StyledOverflow = styled.div`
 width: 550px;
 height: 700px;
 overflow: hidden;
-left: 35rem;
+left: 34rem;
 position: absolute;
 `
 
 const StyledImageLists = styled.div`
   position: absolute;
-  width: 200px;
-  height: 200px;
+ 
+  left: 18rem;
 `
 
 class Carousel extends React.Component {

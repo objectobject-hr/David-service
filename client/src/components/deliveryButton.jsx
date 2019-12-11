@@ -18,7 +18,6 @@ display: flex;
     align-items: center;
     text-align: left;
     width: 100%;
-    position: relative;
     font-size: 1rem;
     :hover {
         background-color: #F8F8F8;
