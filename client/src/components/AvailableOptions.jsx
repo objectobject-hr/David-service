@@ -5,15 +5,16 @@ import DeliveryButton from './deliveryButton.jsx';
 const StyledAssemblyBox = styled.div`
 cursor: pointer;
 text-align: left;
-width: 100%;
+
 display: flex;
 -webkit-box-pack: justify;
 justify-content: space-between;
 -webkit-box-align: center;
+padding: 0 0 0.4rem;
 :hover {
     background-color: #F8F8F8;
   }
-  line-height: 2rem;
+  line-height: 3rem;
 `
 
 const StyledImage = styled.img`
@@ -45,7 +46,6 @@ text-decoration: underline;
 `
 
 const StyledCheckLocal = styled.svg`
-margin-right: .5rem;
 width: 2rem;
 height: 2rem;
 display: inline-block;
@@ -88,7 +88,7 @@ class AvailableOptions extends React.Component {
                 <div>
                     <DeliveryButton />
                 </div>
-                <StyledAssemblyBox style={{ padding: '0.5rem' }}>
+                <StyledAssemblyBox style={{ padding: '0.3rem 0 0.3rem 0.8rem' }}>
                     <div>
                         <span>
                             <StyledCheckLocal >

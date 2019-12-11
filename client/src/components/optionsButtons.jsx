@@ -99,7 +99,7 @@ position: absolute;
     font-size: .875rem;
     line-height: 1.7143;
     transition-property: background-color,border-radius,width;
-    -webkit-writing-mode: horizontal-tb !important;
+    
     text-rendering: auto;
     color: buttontext;
     letter-spacing: normal;
@@ -111,7 +111,7 @@ text-align: center;
 font-weight: 700;
     font-size: .875rem;
     line-height: 1.7143;
-    -webkit-writing-mode: horizontal-tb !important;
+    
     text-rendering: auto;
     color: buttontext;
     letter-spacing: normal;
@@ -128,7 +128,7 @@ text-align: center;
 font-weight: 700;
     font-size: .875rem;
     line-height: 1.7143;
-    -webkit-writing-mode: horizontal-tb !important;
+    
     text-rendering: auto;
     color: buttontext;
     letter-spacing: normal;
@@ -158,7 +158,7 @@ position: absolute;
     top: 50%;
     left: 72%;
     transform: translateY(-50%);
-    -webkit-appearance: button;
+    
     cursor: pointer;
     text-align: center;
     display: inline-block;
@@ -168,7 +168,7 @@ position: absolute;
     font-size: .875rem;
     line-height: 1.7143;
     transition-property: background-color,border-radius,width;
-    -webkit-writing-mode: horizontal-tb !important;
+
     text-rendering: auto;
     color: buttontext;
     letter-spacing: normal;
@@ -181,9 +181,8 @@ text-align: center;
 font-weight: 700;
     font-size: .875rem;
     line-height: 1.7143;
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: buttontext;
+    
+    
     letter-spacing: normal;
     word-spacing: normal;
 `
@@ -198,13 +197,12 @@ text-align: center;
 font-weight: 700;
     font-size: .875rem;
     line-height: 1.7143;
-    -webkit-writing-mode: horizontal-tb !important;
+    
     text-rendering: auto;
     color: buttontext;
     letter-spacing: normal;
     word-spacing: normal;
-    focusable:false;
-    viewBox:0 0 24 24;
+    
 `
 
 const StyledMarginDiv = styled.div`
@@ -236,7 +234,7 @@ class OptionButtons extends React.Component {
 
     decreaseQuantity(e) {
         e.preventDefault()
-        if (this.state.quantity > 0) {
+        if (this.state.quantity > 1) {
             this.setState(prevState => ({
                 quantity: prevState.quantity - 1
             }))

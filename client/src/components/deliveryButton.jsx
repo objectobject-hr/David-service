@@ -10,14 +10,14 @@ background-color: #fff;
 
 const StyledDiv = styled.div`
 background-color: #fff;
-padding: .5rem;
+padding: .8rem;
 display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
     text-align: left;
-    width: 100%;
+
     font-size: 1rem;
     :hover {
         background-color: #F8F8F8;
@@ -33,7 +33,7 @@ font-size: 1rem;
 `
 
 const StyledSvg = styled.svg`
-margin-right: .5rem;
+margin-right: .2rem;
 width: 2rem;
 height: 2rem;
 display: inline-block;

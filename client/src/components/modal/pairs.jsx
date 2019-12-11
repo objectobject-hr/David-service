@@ -89,13 +89,19 @@ width: 1.5rem;
     position: absolute;
 `
 
+const StyledHooverDiv = styled.div`
+
+`
+
 const Pairs = (props) => (
     <StyledMainOuterDiv>
         <StyledMainInnerDiv>
+
             <StyledImg src={props.data.imageSrc[0]} />
             <StyledName>{props.data.name}</StyledName>
             <div>{props.data.shortDesc.split(',')[0]}, {props.data.shortDesc.split(',')[1]}</div>
             <StyledPrice>${props.data.price}.00</StyledPrice>
+
             <span><StarReview rating={props.data.rating} reviewNum={props.data.reviewNum} /></span>
             <span>({props.data.reviewNum})</span><br />
             <StyledButton>
