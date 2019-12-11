@@ -5,7 +5,6 @@ let StyledArrow = styled.svg`
 position: absolute;
     top: 22rem;
     left: 30rem;
-    z-index: 999;
     cursor: pointer;
     height: 20px;
     width: 20px;

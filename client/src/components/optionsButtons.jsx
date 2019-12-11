@@ -224,6 +224,7 @@ class OptionButtons extends React.Component {
         this.increaseQuantity = this.increaseQuantity.bind(this)
         this.decreaseQuantity = this.decreaseQuantity.bind(this)
         this.showModal = this.showModal.bind(this)
+        this.showBagModal = this.showBagModal.bind(this)
     }
 
     increaseQuantity(e) {

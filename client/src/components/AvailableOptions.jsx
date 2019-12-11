@@ -4,7 +4,6 @@ import DeliveryButton from './deliveryButton.jsx';
 
 const StyledAssemblyBox = styled.div`
 cursor: pointer;
-background-color: #fff;
 text-align: left;
 width: 100%;
 display: flex;
@@ -38,14 +37,12 @@ fill-Rule:nonzero;
 fill: #fff;
 `
 
-const StyledATag = styled.a`
+const StyledATag = styled.span`
 font-size: 0.9em;
 margin-top: .5rem;
-background-color: transparent;
-    color: #0058a3;
-    position: relative;
-    background: transparent;
-    text-decoration: underline;
+color: #0058a3;
+position: absolute;
+text-decoration: underline;
 `
 
 const StyledCheckLocal = styled.svg`

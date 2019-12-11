@@ -33,7 +33,7 @@ width: 550px;
 height: 700px;
 overflow: hidden;
 left: 35rem;
-position: fixed;
+position: absolute;
 `
 
 const StyledImageLists = styled.div`
