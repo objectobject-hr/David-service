@@ -13,7 +13,7 @@ const ProductDetail = (props) => (
                 <span>
                     <StarReview rating={props.data.rating} reviewNum={props.data.reviewNum} />
                 </span>
-                <span className="dk-reivewCount">
+                <span className="dk-reviewCount">
                     {props.data.reviewNum} Reviews
                 </span>
             </div>

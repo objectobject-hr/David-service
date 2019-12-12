@@ -1,16 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const StyledImages = styled.div`
-text-align: center;
-`
 
 const ZoomImages = (props) => {
 
-    return (<StyledImages>
+    return (<div text-align="center">
         <img src={props.list} />
 
-    </StyledImages>
+    </div>
     )
 }
 

@@ -1,25 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const StyledRating = styled.span`
-padding-right: 0.5rem;
-font-size: 17px;
-`
-
-const StyledReviewComponent = styled.a`
-cursor: pointer;
-`
-
-const StyledFullStop = styled.stop`
-offset:50%; 
-stop-color:#ffd200;
-`
-
-const StyledHalfStop = styled.stop`
-offset:50%;
-stop-color:#EEE; 
-stop-opacity:1;
-`
 
 class StarReview extends React.Component {
     constructor(props) {
@@ -57,9 +36,9 @@ class StarReview extends React.Component {
                             width="25" height="25" viewBox="0 0 100 100">
                             <defs>
                                 <linearGradient id="half_grad">
-                                    <StyledFullStop offset="50%"
+                                    <stop className="dk-fullStop" offset="50%"
                                         stop-color="#ffd200" />
-                                    <StyledHalfStop
+                                    <stop className="dk-halfStop"
                                         offset="50%"
                                         stop-color="#EEE"
                                         stop-opacity="1"
@@ -89,14 +68,14 @@ class StarReview extends React.Component {
     render() {
 
         return (
-            <StyledReviewComponent>
+            <a className="dk-reviewAtag">
                 <span>
                     {this.state.container}
                 </span>
-                <StyledRating>
+                <span className="dk-rating">
                     {Math.round(10 * this.props.rating) / 10}
-                </StyledRating>
-            </StyledReviewComponent>
+                </span>
+            </a>
 
         )
 
