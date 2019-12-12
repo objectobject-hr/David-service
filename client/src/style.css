@@ -1,7 +1,7 @@
 /* App.jsx */
 
 div.dk-theMainDiv {
-    /* display: flex; */
+    width: 1200px;
 }
 
 div.dk-carouselAndProductInfo {
@@ -13,7 +13,7 @@ div.dk-productDetail{
 background-color: white;
 position: relative;
 height: 700px;
-left: 27%;
+left: 38%;
 }
 
 div.dk-zoomImageDiv {
@@ -165,13 +165,13 @@ div.dk-overFlow{
 width: 550px;
 height: 700px;
 overflow: hidden;
-left:76%;
+left:77%;
 position: relative;
 }
 
 div.dk-galleryLists{
 position: relative;
-  left: 40%;
+  left: 50%;
 }
 
 /* deliveryButton.jsx */
@@ -270,7 +270,7 @@ border: 2px solid black;
 svg.dk-leftArrow {
     position: relative;
     top: 27rem;
-    left: 50%;
+    left: 55%;
     cursor: pointer;
     height: 20px;
     width: 20px;
@@ -281,7 +281,7 @@ svg.dk-leftArrow {
 svg.dk-rightArrow {
     position: relative;
     top: 27rem;
-    left: 62%;
+    left: 60%;
     cursor: pointer;
     height: 22px;
     width: 22px;
