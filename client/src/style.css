@@ -17,7 +17,7 @@ left: 38%;
 }
 
 div.dk-zoomImageDiv {
-    /* position: fixed; */
+    position: static;
 }
 
 button.dk-zoomCloseButton {
@@ -269,7 +269,7 @@ border: 2px solid black;
 
 svg.dk-leftArrow {
     position: relative;
-    top: 27rem;
+    top: 23rem;
     left: 55%;
     cursor: pointer;
     height: 20px;
@@ -280,7 +280,7 @@ svg.dk-leftArrow {
 
 svg.dk-rightArrow {
     position: relative;
-    top: 27rem;
+    top: 23rem;
     left: 60%;
     cursor: pointer;
     height: 22px;
