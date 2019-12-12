@@ -37,11 +37,11 @@ class StarReview extends React.Component {
                             <defs>
                                 <linearGradient id="half_grad">
                                     <stop className="dk-fullStop" offset="50%"
-                                        stop-color="#ffd200" />
+                                        stopColor="#ffd200" />
                                     <stop className="dk-halfStop"
                                         offset="50%"
-                                        stop-color="#EEE"
-                                        stop-opacity="1"
+                                        stopColor="#EEE"
+                                        stopOpacity="1"
                                     />
                                 </linearGradient>
                             </defs>

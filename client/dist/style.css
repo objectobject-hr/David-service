@@ -1,27 +1,22 @@
 /* App.jsx */
 
-div.dk-theMainDiv {
-    /* display: flex; */
-}
-
-div.dk-carouselAndProductInfo {
-    display: flex;
+div.dk-mainBody{
+    margin-left: 20rem;
+    margin-right: 20rem;
 }
 
 div.dk-productDetail{
     width: 25rem;
 background-color: white;
-position: relative;
+top: 3rem;
+position: absolute;
 height: 700px;
-left: 27%;
-}
-
-div.dk-zoomImageDiv {
-    /* position: fixed; */
+right: 240px;
+padding-right: 50px;
+padding-left: 50px;
 }
 
 button.dk-zoomCloseButton {
-    z-index:1;
     cursor: pointer;
 position: fixed;
 top: 15px;
@@ -34,13 +29,11 @@ border: none;
 }
 
 div.dk-zoomImage {
-    z-index:0;
-    background-color: white;
     display: grid;
 position: absolute;
 text-align: center;
-width:100%;
 top: -20%;
+right: 265px;
 transition: transform;
 }
 
@@ -70,7 +63,10 @@ margin-block-start: 1em;
 li.dk-headerLi{
     display: inline;
     max-width: 100%;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
     padding-left: 0;
+    margin-bottom: 0;
     line-height: 2;
     cursor: pointer;
 }
@@ -140,10 +136,6 @@ transition-timing-function: cubic-bezier(.4,0,0,1);
 
 /* Carousel */
 
-div.dk-slidesAndArrowsDiv {
-    display: flex
-}
-
 div.dk-slideDiv{
     top:5rem;
   position: relative;
@@ -161,17 +153,16 @@ div.dk-WrapperDiv{
 }
 
 div.dk-overFlow{
-    
-width: 550px;
+    width: 550px;
 height: 700px;
 overflow: hidden;
-left:76%;
-position: relative;
+left: 34rem;
+position: absolute;
 }
 
 div.dk-galleryLists{
-position: relative;
-  left: 40%;
+    position: absolute;
+  left: 18rem;
 }
 
 /* deliveryButton.jsx */
@@ -268,9 +259,9 @@ border: 2px solid black;
 /* leftArrow.jsx */
 
 svg.dk-leftArrow {
-    position: relative;
+    position: absolute;
     top: 27rem;
-    left: 50%;
+    left: 28rem;
     cursor: pointer;
     height: 20px;
     width: 20px;
@@ -279,9 +270,9 @@ svg.dk-leftArrow {
 /* rightArrow.jsx */
 
 svg.dk-rightArrow {
-    position: relative;
+    position: absolute;
     top: 27rem;
-    left: 62%;
+    right: 48rem;
     cursor: pointer;
     height: 22px;
     width: 22px;
@@ -363,9 +354,10 @@ display: inline-block;
 /* productDetail.jsx */
 
 span.dk-readMore {
-    text-decoration: underline;
+text-decoration: underline;
 color: #0058a3;
 cursor: pointer;
+padding-left: 0.5rem;
 }
 
 span.dk-reviewCount {

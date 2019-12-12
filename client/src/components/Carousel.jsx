@@ -102,11 +102,14 @@ class Carousel extends React.Component {
       )
     } else {
       return (
-        < div >
-          <div >
-            <div>
-              <LeftArrow leftArrow={this.leftArrowHandler} />
+        <div >
+          <div className="dk-slidesAndArrowsDiv">
+            <div className="dk-galleryLists">
+              <GalleryLists lists={this.state.lists[0].imageSrc} index={this.getIndex} url={this.state.url} />
             </div>
+
+            <LeftArrow leftArrow={this.leftArrowHandler} />
+
             <div>
               <div className="dk-overFlow">
                 <div className="dk-slideDiv">
@@ -120,13 +123,10 @@ class Carousel extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="dk-galleryLists">
-              <GalleryLists lists={this.state.lists[0].imageSrc} index={this.getIndex} url={this.state.url} />
-            </div>
-            <div>
-              <RightArrow rightArrow={this.rightArrowHandler} />
-            </div>
-          </div >
+
+            <RightArrow rightArrow={this.rightArrowHandler} />
+
+          </div>
         </div >
       )
     }

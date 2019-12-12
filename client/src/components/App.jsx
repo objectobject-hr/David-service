@@ -54,7 +54,9 @@ class App extends React.Component {
             if (!this.state.isOpen) {
 
                 return (
-                    <div style={{ fontFamily: `Noto Sans, sans-serif` }}>
+                    <div className="dk-theMainDiv" style={{
+                        fontFamily: `Noto Sans, sans-serif`
+                    }}>
                         <div className="dk-outerCategory">
                             <ol className="dk-headerOl">
                                 <li className="dk-headerLi">
@@ -78,10 +80,8 @@ class App extends React.Component {
                                 </li>
                             </ol>
                         </div>
-                        <div className="dk-mainBody">
-                            <div>
-                                <Carousel indexGetter={this.indexGetter} zoom={this.zoomHandler} />
-                            </div>
+                        <div className="dk-carouselAndProductInfo">
+                            <Carousel indexGetter={this.indexGetter} zoom={this.zoomHandler} />
                             <div className="dk-productDetail">
                                 <div>
                                     <ProductDetail data={this.state.list[0]} />
@@ -96,7 +96,7 @@ class App extends React.Component {
                 // console.log('index!?!? -----', this.state.currentIndex)
                 // console.log('list exist?!?!?', this.state.list[0].imageSrc.length)
                 return (
-                    <div>
+                    <div className="dk-zoomImageDiv">
                         <button className="dk-zoomCloseButton" onClick={() => { this.zoomHandler() }}>
                             <svg width="20" height="20">
                                 <path d="M17.597 5l-5.592 5.592L6.414 5 5 6.415l5.591 5.591L5 17.597l1.414 1.414 5.591-5.592 5.592 5.592 1.414-1.414-5.592-5.591 5.592-5.591z" />
