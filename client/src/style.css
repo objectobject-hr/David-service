@@ -546,6 +546,8 @@ stop-opacity:1;
 /* pairs.jsx */
 
 div.dk-mainOuterDiv{
+    display:flex;
+    justify-content: center;
     padding: 2rem 1rem;
 flex: 0 0 25%;
 position: relative;
@@ -791,8 +793,6 @@ font-weight: 700;
 }
 
 div.dk-pairsLists {
-    -webkit-box-pack: center;
-justify-content: center;
 margin: 0;
     padding: 0 4rem;
     display: flex;
