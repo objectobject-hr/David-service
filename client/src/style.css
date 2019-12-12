@@ -546,7 +546,7 @@ stop-opacity:1;
 /* pairs.jsx */
 
 div.dk-mainOuterDiv{
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
 flex: 0 0 25%;
 position: relative;
     width: 100%;
@@ -654,7 +654,7 @@ div.dk-backDrop {
 }
 
 div.dk-modalStyle {
-    width: 80rem;
+    width: 1050px;
 box-sizing: border-box;
 transform: translate(-50%, -3rem);
 border-radius: 5px;

@@ -6,7 +6,7 @@ const Pairs = (props) => (
         <div className="dk-mainInnerDiv">
 
             <img key={props.data._id} className="dk-productImage" src={props.data.imageSrc[0]} />
-            <div key={props.data._id} className="dk-productName">{props.data.name}</div>
+            <div key={props.data.rating} className="dk-productName">{props.data.name}</div>
             <div style={{ cursor: 'pointer' }}>{props.data.shortDesc.split(',')[0]}, {props.data.shortDesc.split(',')[1]}</div>
             <div className="dk-pairsPrice ">${props.data.price}.00</div>
 
