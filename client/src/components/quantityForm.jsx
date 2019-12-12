@@ -1,21 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledQuantityDiv = styled.div`
-margin-bottom: 1rem;
--webkit-box-pack: justify;
-justify-content: space-between;
--webkit-box-align: center;
-align-items: center;
-display: flex;
-visibility: visible;
-`
-
-const StyledQuantityInput = styled.div`
-width: 9rem;
-    position: relative;
-    display: block;
-`
 
 const StyledMinusButton = styled.button`
 padding: .6rem;
@@ -199,7 +184,7 @@ class QuantityForm extends React.Component {
         if (this.state.quantity <= 1) {
             return (
                 <div>
-                    <StyledQuantityDiv>
+                    <div className="dk-quantityOutterDiv">
                         <label>Quantity</label>
                         <div >
                             <StyledQuantityInput>
@@ -219,7 +204,7 @@ class QuantityForm extends React.Component {
                                 </StyledPlusButton>
                             </StyledQuantityInput>
                         </div>
-                    </StyledQuantityDiv>
+                    </div>
                     <StyledHiddenMsg style={{
                         marginBottom: `${this.state.quantity <= 0 ? '1rem' : '0rem'}`,
                         maxHeight: `${this.state.quantity <= 0 ? '5em' : '0em'}`,
@@ -229,7 +214,7 @@ class QuantityForm extends React.Component {
                         <StyledHiddenSpan><svg viewBox="0 0 16 16">
                             <g >
                                 <path fill="#E00751" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
-                                <path fill="#FFF" fill-rule="nonzero" d="M9.45 8.036L11.414 10 10 11.414 8.036 9.45 6.07 11.414 4.657 10l1.964-1.964L4.5 5.914 5.914 4.5l2.122 2.121 2.12-2.121 1.415 1.414L9.45 8.036z" />
+                                <path fill="#FFF" d="M9.45 8.036L11.414 10 10 11.414 8.036 9.45 6.07 11.414 4.657 10l1.964-1.964L4.5 5.914 5.914 4.5l2.122 2.121 2.12-2.121 1.415 1.414L9.45 8.036z" />
                             </g>
                         </svg>
                         </StyledHiddenSpan>
@@ -239,7 +224,7 @@ class QuantityForm extends React.Component {
             )
         } else if (1 < this.state.quantity && this.state.quantity < 999) {
             return (
-                <StyledQuantityDiv>
+                <div className="dk-quantityOutterDiv">
                     <label>Quantity</label>
                     <div >
                         <StyledQuantityInput>
@@ -257,12 +242,12 @@ class QuantityForm extends React.Component {
                             </StyledPlusButton>
                         </StyledQuantityInput>
                     </div>
-                </StyledQuantityDiv>
+                </div>
             )
         } else if (this.state.quantity >= 999) {
             return (
                 <div>
-                    <StyledQuantityDiv>
+                    <div className="dk-quantityOutterDiv">
                         <label>Quantity</label>
                         <div >
                             <StyledQuantityInput>
@@ -282,7 +267,7 @@ class QuantityForm extends React.Component {
                                 </StyledPlusButton>
                             </StyledQuantityInput>
                         </div>
-                    </StyledQuantityDiv>
+                    </div>
                     <StyledHiddenMsg style={{
                         marginBottom: `${this.state.quantity >= 1000 ? '1rem' : '0rem'}`,
                         maxHeight: `${this.state.quantity >= 1000 ? '5em' : '0em'}`,
@@ -292,7 +277,7 @@ class QuantityForm extends React.Component {
                         <StyledHiddenSpan><svg viewBox="0 0 16 16">
                             <g >
                                 <path fill="#E00751" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
-                                <path fill="#FFF" fill-rule="nonzero" d="M9.45 8.036L11.414 10 10 11.414 8.036 9.45 6.07 11.414 4.657 10l1.964-1.964L4.5 5.914 5.914 4.5l2.122 2.121 2.12-2.121 1.415 1.414L9.45 8.036z" />
+                                <path fill="#FFF" d="M9.45 8.036L11.414 10 10 11.414 8.036 9.45 6.07 11.414 4.657 10l1.964-1.964L4.5 5.914 5.914 4.5l2.122 2.121 2.12-2.121 1.415 1.414L9.45 8.036z" />
                             </g>
                         </svg>
                         </StyledHiddenSpan>

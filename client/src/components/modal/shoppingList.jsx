@@ -87,7 +87,7 @@ export default class ShoppingList extends React.Component {
                         </svg>
                     </StyledCloseButton>
                     <StyledMainPopup>
-                        <div class="">
+                        <div >
                             <p>Item added to your shopping list Shopping list</p>
                             <StyledListButton>View your shopping list</StyledListButton>
                         </div>

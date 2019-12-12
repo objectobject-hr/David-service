@@ -2,49 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import StarReview from '../starReview.jsx';
 
-const StyledImg = styled.img`
-    width: 180px;
-    height: 180px;
-    display: block;
-    transition-duration: .3s;
-transition-timing-function: cubic-bezier(0.4, 0, 0, 1);
-cursor: pointer;
-    :hover {
-        transform: scale(1.05);
-      }
-`;
-
-const StyledMainOuterDiv = styled.div`
-padding: 2rem 1.5rem;
-flex: 0 0 25%;
-position: relative;
-    width: 100%;
-    min-height: 1px;
-    line-height: 1.5;
-`
-
-const StyledMainInnerDiv = styled.div`
--webkit-font-smoothing: antialiased;
-max-width: 30rem;
-vertical-align: middle;
-font-size: 1rem;
-line-height: 1.5;
-word-break: break-word;
-:hover{
-    .productImage{
-        transform: scale(1.05);
-    }
-    .productName{
-        text-decoration: underline;
-    }
-}
-`
-
-const StyledName = styled.div`
-cursor: pointer;
-font-weight: 700;
-`
-
 const StyledPrice = styled.div`
 cursor: pointer;
 font-weight: 700;
@@ -100,16 +57,12 @@ width: 1.5rem;
     position: absolute;
 `
 
-const StyledHooverDiv = styled.div`
-
-`
-
 const Pairs = (props) => (
-    <StyledMainOuterDiv>
-        <StyledMainInnerDiv>
+    <div className="dk-mainOuterDiv">
+        <div className="dk-mainInnerDiv">
 
-            <StyledImg className="productImage" src={props.data.imageSrc[0]} />
-            <StyledName className="productName">{props.data.name}</StyledName>
+            <img key={props.data} className="dk-productImage" src={props.data.imageSrc[0]} />
+            <div key={props.data} className="dk-productName">{props.data.name}</div>
             <div style={{ cursor: 'pointer' }}>{props.data.shortDesc.split(',')[0]}, {props.data.shortDesc.split(',')[1]}</div>
             <StyledPrice>${props.data.price}.00</StyledPrice>
 
@@ -124,8 +77,8 @@ const Pairs = (props) => (
                     </StyledIconSvg>
                 </StyledButtonIcon>
             </StyledButton>
-        </StyledMainInnerDiv>
-    </StyledMainOuterDiv>
+        </div>
+    </div>
 )
 
 export default Pairs;

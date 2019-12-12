@@ -46,12 +46,12 @@ class StarReview extends React.Component {
         for (var i = 0; i < 5; i++) {
             if (this.state.ratings - 1 >= 0) {
                 this.state.container.push(
-                    <span><svg viewBox="0 0 100 100" width="25" height="25" xmlns="http://www.w3.org/2000/svg"><path fill="#ffd200" d="M50 73l29.39 21.45-11.32-34.579L97.553 38.55l-36.385.08L50 4 38.832 38.629l-36.385-.08L31.93 59.871l-11.32 34.58z" fillRule="evenodd" /></svg></span>
+                    <span key={i}><svg viewBox="0 0 100 100" width="25" height="25" xmlns="http://www.w3.org/2000/svg"><path fill="#ffd200" d="M50 73l29.39 21.45-11.32-34.579L97.553 38.55l-36.385.08L50 4 38.832 38.629l-36.385-.08L31.93 59.871l-11.32 34.58z" fillRule="evenodd" /></svg></span>
                 )
                 this.state.ratings--
             } else if (this.state.ratings === 0.5) {
                 this.state.container.push(
-                    <span>
+                    <span key={i}>
 
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                             width="25" height="25" viewBox="0 0 100 100">
@@ -74,7 +74,7 @@ class StarReview extends React.Component {
                 this.state.ratings -= 0.5
             } else {
                 this.state.container.push(
-                    <span>
+                    <span key={i}>
                         <svg viewBox="0 0 100 100" width="25" height="25" xmlns="http://www.w3.org/2000/svg"><path fill="#EEE" d="M50 73l29.39 21.45-11.32-34.579L97.553 38.55l-36.385.08L50 4 38.832 38.629l-36.385-.08L31.93 59.871l-11.32 34.58z" fillRule="evenodd" /></svg>
                     </span>
                 )
