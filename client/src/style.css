@@ -54,7 +54,7 @@ div.dk-zoomImage {
 position: absolute;
 text-align: center;
 width:100%;
-top: -50%;
+top: -10%;
 transition: transform;
 }
 
