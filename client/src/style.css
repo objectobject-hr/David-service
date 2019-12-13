@@ -9,7 +9,7 @@ body {
   }
   #modal {
     z-index: 2;
-    position: fixed;
+    position: static;
   }
 
 /* App.jsx */
@@ -31,7 +31,7 @@ left: 38%;
 }
 
 div.dk-zoomImageDiv {
-    position: fixed;
+    position: static;
 }
 
 button.dk-zoomCloseButton {
@@ -51,7 +51,7 @@ div.dk-zoomImage {
     z-index:0;
     background-color: white;
     display: grid;
-position: fixed;
+position: absolute;
 text-align: center;
 width:100%;
 top: -20%;

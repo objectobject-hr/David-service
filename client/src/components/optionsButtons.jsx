@@ -1,9 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import ShoppingList from './modal/shoppingList.jsx';
 import ShoppingBagModal from './modal/shoppingBagModal.jsx';
 import QuantityForm from './quantityForm.jsx';
-
+import Modal from './modal/modal.jsx';
 
 class OptionButtons extends React.Component {
     constructor(props) {
@@ -61,10 +60,14 @@ class OptionButtons extends React.Component {
                     </button>
                 </div>
                 <div>
-                    <ShoppingBagModal data={this.state.data} onClose={this.showBagModal} show={this.state.bagShow}></ShoppingBagModal>
+                    <Modal>
+                        <ShoppingBagModal data={this.state.data} onClose={this.showBagModal} show={this.state.bagShow}></ShoppingBagModal>
+                    </Modal>
                 </div>
                 <div>
-                    <ShoppingList onClose={this.showModal} show={this.state.listShow} ></ShoppingList>
+                    <Modal>
+                        <ShoppingList onClose={this.showModal} show={this.state.listShow} ></ShoppingList>
+                    </Modal>
                 </div>
             </div>
         )
