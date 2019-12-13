@@ -18,7 +18,7 @@ export default class ShoppingList extends React.Component {
                     </div>
                     <div className="dk-mainPopup">
                         <div >
-                            <p>Item added to your shopping list Shopping list</p>
+                            <p>Item added to your shopping list Shopping list</p> <br />
                             <a className="dk-listButton">View your shopping list</a>
                         </div>
                     </div>

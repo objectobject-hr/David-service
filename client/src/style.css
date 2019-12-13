@@ -391,6 +391,18 @@ span.dk-reviewCount:hover {
     text-decoration: underline;
   }
 
+div.dk-productPrice {
+    font-size: 2rem;
+    font-weight: 700;
+    padding-top: 7px;
+    padding-bottom: 15px;
+}
+
+div.dk-productDetailName {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
 /* quantityForm.jsx */
 
 div.dk-quantityOutterDiv {
