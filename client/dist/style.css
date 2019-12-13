@@ -28,9 +28,13 @@ background-position: 50%;
 border: none;
 }
 
+div.dk-zoomImageDiv {
+    position: fixed;
+}
+
 div.dk-zoomImage {
     display: grid;
-position: absolute;
+position: fixed;
 text-align: center;
 top: -20%;
 right: 265px;
