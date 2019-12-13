@@ -14,7 +14,8 @@ class App extends React.Component {
         this.state = {
             list: null,
             isOpen: false,
-            currentIndex: 0
+            currentIndex: 0,
+            randomIndex: 0
         }
 
         this.zoomHandler = this.zoomHandler.bind(this)
@@ -26,12 +27,23 @@ class App extends React.Component {
         this.getProductData()
     }
 
+    randomIndexGenerator(index) {
+        console.log(index)
+        const random = Math.floor(Math.random() * index)
+
+        this.setState({
+            randomIndex: random
+        })
+    }
+
     getProductData() {
         axios.get('/ikea').then((response) => {
             // console.log('hello from client', response.data)
             this.setState({
                 list: response.data
             })
+            this.randomIndexGenerator(response.data.length)
+            console.log(response.data.length)
         })
     }
 
@@ -58,9 +70,7 @@ class App extends React.Component {
         if (this.state.list === null) {
             return null
         } else {
-
             if (!this.state.isOpen) {
-
                 return (
                     <div className="dk-theMainDiv" style={{
                         fontFamily: `Noto Sans, sans-serif`
@@ -84,15 +94,15 @@ class App extends React.Component {
                                     </li>
                                 <span className="dk-headerSlash">/</span>
                                 <li className="dk-headerLi">
-                                    {this.state.list[0].name} {this.state.list[0].shortDesc.split(',')[0]}
+                                    {this.state.list[this.state.randomIndex].name} {this.state.list[this.state.randomIndex].shortDesc.split(',')[0]}
                                 </li>
                             </ol>
                         </div>
                         <div className="dk-carouselAndProductInfo">
-                            <Carousel indexGetter={this.indexGetter} zoom={this.zoomHandler} />
+                            <Carousel randomIndex={this.state.randomIndex} indexGetter={this.indexGetter} zoom={this.zoomHandler} />
                             <div className="dk-productDetail">
                                 <div>
-                                    <ProductDetail data={this.state.list[0]} />
+                                    <ProductDetail data={this.state.list[this.state.randomIndex]} />
                                 </div><br />
                                 <div><OptionButtons data={this.state.list} /></div>
                                 <div><AvailableOptions /></div>
@@ -105,7 +115,7 @@ class App extends React.Component {
                 // console.log('list exist?!?!?', this.state.list[0].imageSrc.length)
                 return (
                     <Modal>
-                        <ZoomPageModal index={this.state.currentIndex} onClose={this.showModal} zoom={this.zoomHandler} imageSrc={this.state.list[0].imageSrc} show={this.state.isOpen} />
+                        <ZoomPageModal index={this.state.currentIndex} onClose={this.showModal} zoom={this.zoomHandler} imageSrc={this.state.list[this.state.randomIndex].imageSrc} show={this.state.isOpen} />
                     </Modal>
                 )
             }

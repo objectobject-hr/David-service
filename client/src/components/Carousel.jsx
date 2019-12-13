@@ -33,13 +33,13 @@ class Carousel extends React.Component {
       // console.log('hello from client', response.data)
       this.setState({
         lists: response.data,
-        url: response.data[0].imageSrc[0]
+        url: response.data[this.props.randomIndex].imageSrc[0]
       })
     })
   }
 
   rightArrowHandler() {
-    if (this.state.currentIndex < this.state.lists[0].imageSrc.length - 1) {
+    if (this.state.currentIndex < this.state.lists[this.props.randomIndex].imageSrc.length - 1) {
       this.setState(prevState => ({
         currentIndex: prevState.currentIndex + 1
       }));
@@ -49,13 +49,13 @@ class Carousel extends React.Component {
       })
     }
 
-    if (this.state.currentIndex < this.state.lists[0].imageSrc.length - 1) {
+    if (this.state.currentIndex < this.state.lists[this.props.randomIndex].imageSrc.length - 1) {
       this.setState({
-        url: this.state.lists[0].imageSrc[this.state.currentIndex + 1]
+        url: this.state.lists[this.props.randomIndex].imageSrc[this.state.currentIndex + 1]
       })
     } else {
       this.setState({
-        url: this.state.lists[0].imageSrc[0]
+        url: this.state.lists[this.props.randomIndex].imageSrc[0]
       })
     }
   }
@@ -63,7 +63,7 @@ class Carousel extends React.Component {
   leftArrowHandler() {
     if (this.state.currentIndex <= 0) {
       this.setState({
-        currentIndex: this.state.lists[0].imageSrc.length - 1
+        currentIndex: this.state.lists[this.props.randomIndex].imageSrc.length - 1
       })
     } else {
       this.setState(prevState => ({
@@ -73,23 +73,23 @@ class Carousel extends React.Component {
 
     if (this.state.currentIndex === 0) {
       this.setState({
-        url: this.state.lists[0].imageSrc[this.state.lists[0].imageSrc.length - 1]
+        url: this.state.lists[this.props.randomIndex].imageSrc[this.state.lists[this.props.randomIndex].imageSrc.length - 1]
       })
     } else {
       this.setState({
-        url: this.state.lists[0].imageSrc[this.state.currentIndex - 1]
+        url: this.state.lists[this.props.randomIndex].imageSrc[this.state.currentIndex - 1]
       })
     }
   }
 
   getIndex(url) {
     // console.log(url)
-    var imgs = this.state.lists[0].imageSrc
+    var imgs = this.state.lists[this.props.randomIndex].imageSrc
     var index = imgs.indexOf(url)
 
     this.setState({
       currentIndex: index,
-      url: this.state.lists[0].imageSrc[index]
+      url: this.state.lists[this.props.randomIndex].imageSrc[index]
     })
   }
 
@@ -105,7 +105,7 @@ class Carousel extends React.Component {
         <div >
           <div className="dk-slidesAndArrowsDiv">
             <div className="dk-galleryLists">
-              <GalleryLists lists={this.state.lists[0].imageSrc} index={this.getIndex} url={this.state.url} />
+              <GalleryLists lists={this.state.lists[this.props.randomIndex].imageSrc} index={this.getIndex} url={this.state.url} />
             </div>
 
             <LeftArrow leftArrow={this.leftArrowHandler} />
@@ -113,9 +113,9 @@ class Carousel extends React.Component {
             <div>
               <div className="dk-overFlow">
                 <div className="dk-slideDiv">
-                  <div className="dk-WrapperDiv" onClick={() => { this.props.zoom() }} style={{ 'transform': `translateX(-${this.state.currentIndex * (100 / this.state.lists[0].imageSrc.length)}%)` }}>
+                  <div className="dk-WrapperDiv" onClick={() => { this.props.zoom() }} style={{ 'transform': `translateX(-${this.state.currentIndex * (100 / this.state.lists[this.props.randomIndex].imageSrc.length)}%)` }}>
                     {
-                      this.state.lists[0].imageSrc.map((list, i) =>
+                      this.state.lists[this.props.randomIndex].imageSrc.map((list, i) =>
                         <MainSlide list={list} index={this.state.currentIndex} key={i} />
                       )
                     }
