@@ -9,7 +9,7 @@ body {
   }
   #modal {
     z-index: 2;
-    position: relative;
+    position: fixed;
   }
 
 /* App.jsx */
@@ -51,7 +51,7 @@ div.dk-zoomImage {
     z-index:0;
     background-color: white;
     display: grid;
-position: absolute;
+position: fixed;
 text-align: center;
 width:100%;
 top: -10%;
