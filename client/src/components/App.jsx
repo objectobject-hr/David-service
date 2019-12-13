@@ -28,7 +28,6 @@ class App extends React.Component {
     }
 
     randomIndexGenerator(index) {
-        console.log(index)
         const random = Math.floor(Math.random() * index)
 
         this.setState({
@@ -43,7 +42,6 @@ class App extends React.Component {
                 list: response.data
             })
             this.randomIndexGenerator(response.data.length)
-            console.log(response.data.length)
         })
     }
 

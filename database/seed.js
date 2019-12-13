@@ -15,6 +15,7 @@
 //         "https://www.ikea.com/us/en/images/products/ypperlig-table-ash__0593824_PH146021_S5.JPG?f=xxxl"]
 // }];
 db = require('./index.js');
+const mongoose = require('mongoose');
 
 const name = ['NORDVIKEN', 'NORDEN', 'NORDVIKEN', 'KEJSARKRONA', 'LANEBERG', 'INGATORP', 'MORBYLANGA', 'EKOLN', 'HEMNES', 'NORRAKER'];
 const shortDesc = ['Table, ash, 78 3/4x35 3/8 "', 'Extendable table, birch, 61/82 5/8x35 3/8 "', 'Extendable table, white, 51 1/8/74 3/4x31 1/2 "', 'Table, chrome plated, high gloss white, 53 1/8x33 1/2 "', 'Dining table, oak, white, 63x31 1/2 "', 'Table, oak veneer brown stained, 55x33 "'];
@@ -141,18 +142,20 @@ const createData = () => {
     return data
 }
 
-const insertData = () => {
-    var products = createData();
+const insertData = (product) => {
 
-    products.map((product) => (
-        db.save(product, (err, result) => {
-            if (err) {
-                console.log(err)
-            } else {
-                console.log("Data stored Successfully!!!!")
-            }
-        })
-    ))
+    db.save(product, (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            mongoose.connection.close()
+        }
+    })
 }
 
-insertData()
+
+var seedData = createData();
+
+insertData(seedData)
+
+

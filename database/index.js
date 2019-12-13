@@ -5,7 +5,7 @@ mongoose.connect('mongodb://localhost/ikea');
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, `connection error: `));
-db.once('open', () => console.log(`we're connected to  l e w d   b e a t s`));
+db.once('open', () => console.log(`we're connected to Davids Database!!!`));
 
 var ikeaSchema = new mongoose.Schema({
   name: String,
@@ -21,15 +21,7 @@ var IkeaImgs = mongoose.model('IkeaImgs', ikeaSchema);
 
 var save = (data, callback) => {
 
-  IkeaImgs.create({
-    name: data.name,
-    shortDesc: data.shortDesc,
-    price: data.price,
-    rating: data.rating,
-    reviewNum: data.reviewNum,
-    midDesc: data.midDesc,
-    imageSrc: data.imageSrc
-  }, (err, results) => {
+  IkeaImgs.insertMany(data, (err, results) => {
     if (err) {
       callback(err)
     } else {
@@ -53,14 +45,3 @@ var getAll = (callback) => {
 
 module.exports.save = save;
 module.exports.getAll = getAll;
-
-
-/*
-item name
-short Description;
-Price
-ratings and reviews
-mid descriptions
-img urls
-
-*/
