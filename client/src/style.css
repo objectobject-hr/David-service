@@ -381,6 +381,7 @@ span.dk-readMore {
     text-decoration: underline;
 color: #0058a3;
 cursor: pointer;
+padding-left: 0.5rem;
 }
 
 span.dk-reviewCount {
