@@ -3,10 +3,9 @@ import Carousel from './Carousel.jsx';
 import ProductDetail from './productDetail.jsx';
 import OptionButtons from './optionsButtons.jsx';
 import axios from 'axios'
-import ZoomImages from './zoomImages.jsx';
 import AvailableOptions from './AvailableOptions.jsx';
 import Modal from './modal/modal.jsx';
-
+import ZoomPageModal from './modal/zoomPage.jsx';
 
 class App extends React.Component {
     constructor(props) {
@@ -20,7 +19,7 @@ class App extends React.Component {
 
         this.zoomHandler = this.zoomHandler.bind(this)
         this.indexGetter = this.indexGetter.bind(this)
-
+        this.showModal = this.showModal.bind(this)
     }
 
     componentDidMount() {
@@ -47,6 +46,13 @@ class App extends React.Component {
             currentIndex: index
         })
     }
+
+    showModal(e) {
+        e.preventDefault()
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    };
 
     render() {
         if (this.state.list === null) {
@@ -99,18 +105,7 @@ class App extends React.Component {
                 // console.log('list exist?!?!?', this.state.list[0].imageSrc.length)
                 return (
                     <Modal>
-                        <div className="dk-zoomImageDiv">
-                            <button className="dk-zoomCloseButton" onClick={() => { this.zoomHandler() }}>
-                                <svg width="20" height="20">
-                                    <path d="M17.597 5l-5.592 5.592L6.414 5 5 6.415l5.591 5.591L5 17.597l1.414 1.414 5.591-5.592 5.592 5.592 1.414-1.414-5.592-5.591 5.592-5.591z" />
-                                </svg>
-                            </ button>
-                            <div className="dk-zoomImage" style={{ 'transform': `translateY(-${this.state.currentIndex * (100 / this.state.list[0].imageSrc.length)}%)` }}>
-                                {this.state.list[0].imageSrc.map((img) => (
-                                    < ZoomImages list={img} key={img} />
-                                ))}
-                            </div>
-                        </div>
+                        <ZoomPageModal index={this.state.currentIndex} onClose={this.showModal} zoom={this.zoomHandler} imageSrc={this.state.list[0].imageSrc} show={this.state.isOpen} />
                     </Modal>
                 )
             }
