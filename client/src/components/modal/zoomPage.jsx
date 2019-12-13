@@ -28,7 +28,7 @@ export default class ZoomPageModal extends React.Component {
         )
     }
 }
-
+//
 
 
 ZoomPageModal.propTypes = {
