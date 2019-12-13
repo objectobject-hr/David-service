@@ -4,9 +4,9 @@ import StarReview from './starReview.jsx';
 const ProductDetail = (props) => (
     <div>
         <div>
-            <div><h3>
+            <div fontWeight="700;">
                 {props.data.name}
-            </h3></div>
+            </div>
             <div>{props.data.shortDesc}</div>
             <div><h1>${props.data.price}.00</h1></div>
             <div display="flex">

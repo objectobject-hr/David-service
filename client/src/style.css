@@ -48,6 +48,7 @@ div.dk-outerCategory {
     margin: 0 auto;
     max-width: 1400px;
     padding: 0 1rem .8rem;
+    padding-left: 13rem;
     font-size: .75rem;
     line-height: 1.3334;
 }
