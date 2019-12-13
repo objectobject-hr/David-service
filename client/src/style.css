@@ -1,3 +1,17 @@
+body {
+    position: relative;
+    overflow-y: scroll;
+    font-family: ‘Noto Sans’, sans-serif;
+  }
+  body > div {
+    z-index: 1;
+    position: relative;
+  }
+  #modal {
+    z-index: 2;
+    position: fixed;
+  }
+
 /* App.jsx */
 
 div.dk-theMainDiv {
