@@ -10,13 +10,13 @@ export default class ZoomPageModal extends React.Component {
 
   componentDidMount() {
     setTimeout(() => {
-      this.showThePicture(this.props.imageSrc[this.props.index]);
+      this.showThePicture(this.props.index);
     });
   }
 
   showThePicture(index) {
     setTimeout(() => {
-      this.refs[index].scrollIntoView({ block: "center" });
+      this.refs[index].scrollIntoView({ block: "center", behavior: "smooth" });
     });
   }
 
@@ -44,7 +44,7 @@ export default class ZoomPageModal extends React.Component {
               </button>
               <div className="dk-zoomImage">
                 {this.props.imageSrc.map((img, i) => (
-                  <div ref={img}>
+                  <div ref={i}>
                     <ZoomImages list={img} key={i} />
                   </div>
                 ))}
