@@ -68,55 +68,51 @@ class App extends React.Component {
         if (this.state.list === null) {
             return null
         } else {
-            if (!this.state.isOpen) {
-                return (
-                    <div className="dk-theMainDiv" style={{
-                        fontFamily: `Noto Sans, sans-serif`
-                    }}>
-                        <div className="dk-outerCategory">
-                            <ol className="dk-headerOl">
-                                <li className="dk-headerLi">
-                                    Home
+            return (
+                <div className="dk-theMainDiv" style={{
+                    fontFamily: `Noto Sans, sans-serif`
+                }}>
+                    <div className="dk-outerCategory">
+                        <ol className="dk-headerOl">
+                            <li className="dk-headerLi">
+                                Home
                                 </li>
-                                <span className="dk-headerSlash">/</span>
-                                <li className="dk-headerLi">
-                                    Products
+                            <span className="dk-headerSlash">/</span>
+                            <li className="dk-headerLi">
+                                Products
                                     </li>
-                                <span className="dk-headerSlash">/</span>
-                                <li className="dk-headerLi">
-                                    Furniture
+                            <span className="dk-headerSlash">/</span>
+                            <li className="dk-headerLi">
+                                Furniture
                                     </li>
-                                <span className="dk-headerSlash">/</span>
-                                <li className="dk-headerLi">
-                                    Tables & desks
+                            <span className="dk-headerSlash">/</span>
+                            <li className="dk-headerLi">
+                                Tables & desks
                                     </li>
-                                <span className="dk-headerSlash">/</span>
-                                <li className="dk-headerLi">
-                                    {this.state.list[this.state.randomIndex].name} {this.state.list[this.state.randomIndex].shortDesc.split(',')[0]}
-                                </li>
-                            </ol>
-                        </div>
-                        <div className="dk-carouselAndProductInfo">
-                            <Carousel randomIndex={this.state.randomIndex} indexGetter={this.indexGetter} zoom={this.zoomHandler} />
-                            <div className="dk-productDetail">
-                                <div>
-                                    <ProductDetail data={this.state.list[this.state.randomIndex]} />
-                                </div><br />
-                                <div><OptionButtons data={this.state.list} /></div>
-                                <div><AvailableOptions /></div>
-                            </div>
+                            <span className="dk-headerSlash">/</span>
+                            <li className="dk-headerLi">
+                                {this.state.list[this.state.randomIndex].name} {this.state.list[this.state.randomIndex].shortDesc.split(',')[0]}
+                            </li>
+                        </ol>
+                    </div>
+                    <div className="dk-carouselAndProductInfo">
+                        <Carousel randomIndex={this.state.randomIndex} indexGetter={this.indexGetter} zoom={this.zoomHandler} />
+                        <div className="dk-productDetail">
+                            <div>
+                                <ProductDetail data={this.state.list[this.state.randomIndex]} />
+                            </div><br />
+                            <div><OptionButtons data={this.state.list} /></div>
+                            <div><AvailableOptions /></div>
                         </div>
                     </div>
-                )
-            } else {
-                // console.log('index!?!? -----', this.state.currentIndex)
-                // console.log('list exist?!?!?', this.state.list[0].imageSrc.length)
-                return (
-                    <Modal>
-                        <ZoomPageModal index={this.state.currentIndex} onClose={this.showModal} zoom={this.zoomHandler} imageSrc={this.state.list[this.state.randomIndex].imageSrc} show={this.state.isOpen} />
-                    </Modal>
-                )
-            }
+                    <div>
+                        <Modal>
+                            <ZoomPageModal index={this.state.currentIndex} onClose={this.showModal} zoom={this.zoomHandler} imageSrc={this.state.list[this.state.randomIndex].imageSrc} show={this.state.isOpen} />
+                        </Modal>
+                    </div>
+                </div>
+
+            )
         }
     }
 }
