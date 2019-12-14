@@ -48,6 +48,7 @@ class App extends React.Component {
     this.setState({
       isOpen: !this.state.isOpen
     });
+    document.body.classList.add("modal-open");
   }
 
   indexGetter(index) {
@@ -61,6 +62,7 @@ class App extends React.Component {
     this.setState({
       isOpen: !this.state.isOpen
     });
+    document.body.classList.remove("modal-open");
   }
 
   render() {

@@ -4,6 +4,11 @@ body {
   font-family: ‘Noto Sans’, sans-serif;
 }
 
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+}
+
 #modal {
   z-index: 9999;
   position: relative;
