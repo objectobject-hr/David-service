@@ -60,8 +60,8 @@ button.dk-zoomCloseButton {
   z-index: 1;
   cursor: pointer;
   position: fixed;
-  top: 15px;
-  right: 15px;
+  top: 5px;
+  right: 20px;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -923,8 +923,10 @@ div.dk-shoppingListBackDrop {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 50px;
+  animation-name: overlayopen;
+  animation-duration: 0.4s;
 }
 
 div.dk-shoppingListModalStyle {
@@ -944,6 +946,9 @@ div.dk-shoppingListModalStyle {
   position: absolute;
   flex: 0 0 66.66667%;
   max-width: 66.66667%;
+  animation-name: popupframeopen;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
 }
 
 div.dk-shoppingListCloseButton {
