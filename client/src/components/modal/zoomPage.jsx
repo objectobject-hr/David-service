@@ -44,7 +44,7 @@ export default class ZoomPageModal extends React.Component {
               </button>
               <div className="dk-zoomImage">
                 {this.props.imageSrc.map((img, i) => (
-                  <div ref={i}>
+                  <div key={`Unique key${i}`} ref={i}>
                     <ZoomImages list={img} key={i} />
                   </div>
                 ))}
