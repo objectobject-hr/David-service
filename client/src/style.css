@@ -396,6 +396,10 @@ svg.dk-shoppingListSvg {
   margin-right: 0.5rem;
 }
 
+div.dk-shoppingBagModal {
+  transition: width 0.35s ease-in-out;
+}
+
 /* productDetail.jsx */
 
 span.dk-readMore {
