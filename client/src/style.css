@@ -707,26 +707,28 @@ div.dk-backDrop {
   right: 0;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 50px;
+  animation-name: overShadow;
+  animation-duration: 0.4s;
 }
 
-div.dk-modalStyle {
+.dk-modalStyle {
   width: 1050px;
   box-sizing: border-box;
-  transform: translate(-50%, -3rem);
   border-radius: 5px;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   flex-direction: column;
   background-color: #fff;
   transition: all 400ms ease;
   padding: 0;
   margin: 0 auto;
   left: 50%;
-  bottom: 0;
   position: absolute;
-  flex: 0 0 66.66667%;
-  max-width: 66.66667%;
+  transition: all 300ms ease;
+  transform: translate(-50%, 150%);
+}
+
+div.--open {
+  transform: translate(-50%, 4rem);
 }
 
 div.dk-mainDiv {
@@ -925,8 +927,17 @@ div.dk-shoppingListBackDrop {
   right: 0;
   background-color: rgba(0, 0, 0, 0.4);
   padding: 50px;
-  animation-name: overlayopen;
+  animation-name: overShadow;
   animation-duration: 0.4s;
+}
+
+@keyframes overShadow {
+  from {
+    background: transparent;
+  }
+  to {
+    background: rgba(0, 0, 0, 0.4);
+  }
 }
 
 div.dk-shoppingListModalStyle {
@@ -942,21 +953,28 @@ div.dk-shoppingListModalStyle {
   padding: 0;
   margin: 0 auto;
   left: 50%;
-  bottom: 40%;
   position: absolute;
-  flex: 0 0 66.66667%;
-  max-width: 66.66667%;
   animation-name: popupframeopen;
   animation-duration: 0.4s;
   animation-fill-mode: forwards;
 }
 
+@keyframes popupframeopen {
+  from {
+    top: 60%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
 div.dk-shoppingListCloseButton {
   background-color: #fff;
   position: absolute;
-  padding: 0;
-  margin: 0;
-  right: 0;
+  right: 2px;
+  top: 2px;
   width: 2rem;
   height: 2rem;
   cursor: pointer;

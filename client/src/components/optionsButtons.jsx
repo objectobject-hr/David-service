@@ -15,6 +15,7 @@ class OptionButtons extends React.Component {
     };
     this.showModal = this.showModal.bind(this);
     this.showBagModal = this.showBagModal.bind(this);
+    this.closeBagModal = this.closeBagModal.bind(this);
   }
 
   showModal(e) {
@@ -29,6 +30,23 @@ class OptionButtons extends React.Component {
     this.setState({
       bagShow: !this.state.bagShow
     });
+
+    setTimeout(() => {
+      var x = document.getElementsByClassName("dk-modalStyle");
+      x[0].classList.add("--open");
+    });
+  }
+
+  closeBagModal(e) {
+    e.preventDefault();
+    var x = document.getElementsByClassName("dk-modalStyle");
+    x[0].classList.remove("--open");
+
+    setTimeout(() => {
+      this.setState({
+        bagShow: !this.state.bagShow
+      });
+    }, 50);
   }
 
   render() {
@@ -67,11 +85,11 @@ class OptionButtons extends React.Component {
             </span>
           </button>
         </div>
-        <div classname="dk-shoppingBagModal">
+        <div className="dk-shoppingBagModal">
           <Modal>
             <ShoppingBagModal
               data={this.state.data}
-              onClose={this.showBagModal}
+              onClose={this.closeBagModal}
               show={this.state.bagShow}
             ></ShoppingBagModal>
           </Modal>
