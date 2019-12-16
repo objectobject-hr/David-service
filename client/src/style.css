@@ -200,7 +200,7 @@ div.dk-overFlow {
   height: 700px;
   overflow: hidden;
   left: 77%;
-  bottom: 4%;
+  bottom: 8%;
   position: relative;
 }
 
@@ -304,7 +304,7 @@ button.dk-gallerySelectedButton {
 
 svg.dk-leftArrow {
   position: relative;
-  top: 21rem;
+  top: 19rem;
   left: 55%;
   cursor: pointer;
   height: 20px;
@@ -315,7 +315,7 @@ svg.dk-leftArrow {
 
 svg.dk-rightArrow {
   position: relative;
-  top: 21rem;
+  top: 19rem;
   left: 60%;
   cursor: pointer;
   height: 22px;
