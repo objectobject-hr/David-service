@@ -5,7 +5,7 @@ const ProductDetail = props => (
   <div>
     <div>
       <div className="dk-productDetailName">{props.data.name}</div>
-      <div>{props.data.shortDesc}</div>
+      <div style={{ lineHeight: 2.3 }}>{props.data.shortDesc}</div>
       <div className="dk-productPrice">${props.data.price}.00</div>
       <div display="flex">
         <span>
