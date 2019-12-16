@@ -57,8 +57,3 @@ export default class ZoomPageModal extends React.Component {
   }
 }
 //
-
-ZoomPageModal.propTypes = {
-  onClose: PropTypes.func,
-  show: PropTypes.bool
-};
