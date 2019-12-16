@@ -421,12 +421,13 @@ div.dk-productPrice {
   font-weight: 700;
   padding-top: 5px;
   padding-bottom: 10px;
+  -webkit-user-select: none;
 }
 
 div.dk-productDetailName {
-  cursor: pointer;
   font-weight: 700;
   font-size: 1.3rem;
+  -webkit-user-select: none;
 }
 /* quantityForm.jsx */
 

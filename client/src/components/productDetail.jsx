@@ -5,14 +5,17 @@ const ProductDetail = props => (
   <div>
     <div>
       <div className="dk-productDetailName">{props.data.name}</div>
-      <div style={{ lineHeight: 2.3 }}>{props.data.shortDesc}</div>
+      <div style={{ lineHeight: 2.3, WebkitUserSelect: "none" }}>
+        {props.data.shortDesc}
+      </div>
       <div className="dk-productPrice">${props.data.price}.00</div>
       <div
         display="flex"
         style={{
           paddingBottom: "0.5rem",
           display: "flex",
-          alignItems: "center"
+          alignItems: "center",
+          cursor: "pointer"
         }}
       >
         <span>
