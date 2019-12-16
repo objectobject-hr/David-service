@@ -4,10 +4,34 @@ const HiddenMessage = props => (
   <div
     className="dk-hiddenMsg"
     style={{
-      marginBottom: `${props.quantity <= 0 ? "1rem" : "0rem"}`,
-      maxHeight: `${props.quantity <= 0 ? "5em" : "0em"}`,
-      opacity: `${props.quantity <= 0 ? "1" : "0"}`,
-      paddingTop: `${props.quantity <= 0 ? "0.5em" : "0em"}`
+      marginBottom: `${
+        props.quantity <= 0 ||
+        props.quantity >= 1000 ||
+        Number(props.quantity) !== Number(props.quantity)
+          ? "1rem"
+          : "0rem"
+      }`,
+      maxHeight: `${
+        props.quantity <= 0 ||
+        props.quantity >= 1000 ||
+        Number(props.quantity) !== Number(props.quantity)
+          ? "5em"
+          : "0em"
+      }`,
+      opacity: `${
+        props.quantity <= 0 ||
+        props.quantity >= 1000 ||
+        Number(props.quantity) !== Number(props.quantity)
+          ? "1"
+          : "0"
+      }`,
+      paddingTop: `${
+        props.quantity <= 0 ||
+        props.quantity >= 1000 ||
+        Number(props.quantity) !== Number(props.quantity)
+          ? "0.5em"
+          : "0em"
+      }`
     }}
   >
     <span className="dk-hiddenSpan">

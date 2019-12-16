@@ -510,6 +510,12 @@ input.dk-inputField {
   box-shadow: inset 0 0 0 1px transparent;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 button.dk-plusButton {
   padding: 0.6rem;
   position: absolute;
