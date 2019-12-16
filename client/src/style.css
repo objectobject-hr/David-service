@@ -156,7 +156,8 @@ path.dk-whitePath {
 
 span.dk-Atag {
   font-size: 0.9em;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
   color: #0058a3;
   text-decoration: underline;
 }
@@ -199,6 +200,7 @@ div.dk-overFlow {
   height: 700px;
   overflow: hidden;
   left: 77%;
+  bottom: 4%;
   position: relative;
 }
 
@@ -302,7 +304,7 @@ button.dk-gallerySelectedButton {
 
 svg.dk-leftArrow {
   position: relative;
-  top: 23rem;
+  top: 21rem;
   left: 55%;
   cursor: pointer;
   height: 20px;
@@ -313,7 +315,7 @@ svg.dk-leftArrow {
 
 svg.dk-rightArrow {
   position: relative;
-  top: 23rem;
+  top: 21rem;
   left: 60%;
   cursor: pointer;
   height: 22px;
@@ -337,7 +339,7 @@ button.dk-shoppingBagButton {
   background: #0058a3;
   color: #fff;
   border-radius: 2px;
-  padding: 1rem 7.05rem;
+  padding: 1.3rem 7.05rem;
 
   position: relative;
   text-align: center;
@@ -360,7 +362,7 @@ button.dk-shoppingListButton {
   cursor: pointer;
   background: #f5f5f5;
   color: #111;
-  padding: 1rem 7.2rem;
+  padding: 1.2rem 7.2rem;
   position: relative;
   text-align: center;
   display: inline-block;
@@ -499,7 +501,7 @@ input.dk-inputField {
   max-width: 100%;
   padding: 0.9rem 0.05rem;
   display: block;
-  width: 100%;
+  width: 97%;
   margin: 0;
   outline: 0;
   border: 1px solid #959595;
@@ -517,7 +519,7 @@ button.dk-plusButton {
   padding: 0.6rem;
   position: absolute;
   top: 50%;
-  left: 72%;
+  left: 68%;
   transform: translateY(-50%);
   cursor: pointer;
   text-align: center;
