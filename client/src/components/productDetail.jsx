@@ -7,7 +7,14 @@ const ProductDetail = props => (
       <div className="dk-productDetailName">{props.data.name}</div>
       <div style={{ lineHeight: 2.3 }}>{props.data.shortDesc}</div>
       <div className="dk-productPrice">${props.data.price}.00</div>
-      <div display="flex">
+      <div
+        display="flex"
+        style={{
+          paddingBottom: "0.5rem",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
         <span>
           <StarReview
             rating={props.data.rating}
@@ -16,7 +23,6 @@ const ProductDetail = props => (
         </span>
         <span className="dk-reviewCount">{props.data.reviewNum} Reviews</span>
       </div>
-      <br />
       <span style={{ lineHeight: 1.4 }}>{props.data.midDesc}</span>
       <span className="dk-readMore">Read More</span>
     </div>

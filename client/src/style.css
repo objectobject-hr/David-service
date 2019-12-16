@@ -126,11 +126,8 @@ span.dk-headerSlash {
 div.dk-assemblyBox {
   cursor: pointer;
   text-align: left;
-  display: flex;
   -webkit-box-pack: justify;
-  justify-content: space-between;
   -webkit-box-align: center;
-  padding: 0 0 0.4rem;
   line-height: 3rem;
 }
 
@@ -420,8 +417,8 @@ span.dk-reviewCount:hover {
 div.dk-productPrice {
   font-size: 2rem;
   font-weight: 700;
-  padding-top: 7px;
-  padding-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 
 div.dk-productDetailName {
@@ -500,7 +497,7 @@ input.dk-inputField {
   font-family: inherit;
   font-size: 1rem;
   max-width: 100%;
-  padding: 1rem 0.05rem;
+  padding: 0.9rem 0.05rem;
   display: block;
   width: 100%;
   margin: 0;
@@ -590,6 +587,8 @@ span.dk-rating {
 
 a.dk-reviewAtag {
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 stop.dk-fullStop {
