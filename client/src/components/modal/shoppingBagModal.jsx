@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Pairs from "./pairs.jsx";
+import Pairs from "../pairs";
 
 export default class ShoppingBagModal extends React.Component {
   constructor(props) {
