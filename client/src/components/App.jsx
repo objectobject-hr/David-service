@@ -36,7 +36,7 @@ class App extends React.Component {
 
   getProductData() {
     axios.get("/ikea").then(response => {
-      // console.log('hello from client', response.data)
+      // console.log("hello from client", response.data);
       this.setState({
         list: response.data
       });
