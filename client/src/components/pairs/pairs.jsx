@@ -1,5 +1,6 @@
 import React from "react";
 import StarReview from "../starReview.jsx";
+import "./pairs.css";
 
 const Pairs = props => (
   <div className="dk-mainOuterDiv">
