@@ -1,10 +1,11 @@
 import React from "react";
-import Carousel from "./Carousel.jsx";
-import ProductDetail from "./productDetail.jsx";
-import OptionButtons from "./optionsButtons.jsx";
+import Carousel from "../Carousel.jsx";
+import ProductDetail from "../productDetail.jsx";
+import OptionButtons from "../optionsButtons.jsx";
 import axios from "axios";
-import AvailableOptions from "./AvailableOptions.jsx";
-import ZoomPageModal from "./modal/zoomPage.jsx";
+import AvailableOptions from "../AvailableOptions.jsx";
+import ZoomPageModal from "../modal/zoomPage.jsx";
+import "./app.css";
 
 class App extends React.Component {
   constructor(props) {

@@ -1,0 +1,69 @@
+div.dk-theMainDiv {
+  width: 1200px;
+}
+
+div.dk-carouselAndProductInfo {
+  display: flex;
+}
+
+div.dk-productDetail {
+  width: 25rem;
+  background-color: white;
+  position: relative;
+  height: 700px;
+  left: 38%;
+}
+
+button.dk-zoomCloseButton {
+  z-index: 1;
+  cursor: pointer;
+  position: fixed;
+  top: 5px;
+  right: 20px;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-position: 50%;
+  border: none;
+}
+
+div.dk-outerCategory {
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 0 1rem 0.8rem;
+  padding-left: 13rem;
+  font-size: 0.75rem;
+  line-height: 1.3334;
+}
+
+ol.dk-headerOl {
+  padding-left: 0;
+  list-style-type: none;
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+  line-height: 2;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  font-size: 0.75rem;
+}
+
+li.dk-headerLi {
+  display: inline;
+  max-width: 100%;
+  padding-left: 0;
+  line-height: 2;
+  cursor: pointer;
+}
+
+li.dk-headerLi:hover {
+  text-decoration: underline;
+}
+
+span.dk-headerSlash {
+  padding-left: 8px;
+  padding-right: 8px;
+}
