@@ -5,11 +5,13 @@ import OptionButtons from "../optionsButtons.jsx";
 import axios from "axios";
 import AvailableOptions from "../AvailableOptions.jsx";
 import ZoomPageModal from "../modal/zoomPage.jsx";
+import { connect } from "react-redux";
+import { setProductLists } from "../../redux/actions/productActions";
 import "./app.css";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       list: null,
@@ -37,10 +39,10 @@ class App extends React.Component {
 
   getProductData() {
     axios.get("/ikea").then(response => {
-      // console.log("hello from client", response.data);
       this.setState({
         list: response.data
       });
+      this.props.setProductLists(response.data);
       this.randomIndexGenerator(response.data.length);
     });
   }
@@ -131,4 +133,16 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    setProductLists: products => dispatch(setProductLists(products))
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    products: state.products
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
