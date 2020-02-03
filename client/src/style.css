@@ -55,17 +55,6 @@ button.dk-zoomCloseButton {
   border: none;
 }
 
-/* div.dk-zoomImage {
-    z-index: 0;
-    background-color: white;
-    display: grid;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    top: -10%;
-    transition: transform;
-  } */
-
 div.dk-outerCategory {
   margin: 0 auto;
   max-width: 1400px;
