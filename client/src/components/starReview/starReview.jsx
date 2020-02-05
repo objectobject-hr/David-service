@@ -1,4 +1,5 @@
 import React from "react";
+import "./startReview.css";
 
 class StarReview extends React.Component {
   constructor(props) {

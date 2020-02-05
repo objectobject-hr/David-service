@@ -1,0 +1,21 @@
+span.dk-rating {
+  padding-right: 0.5rem;
+  font-size: 17px;
+}
+
+a.dk-reviewAtag {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+stop.dk-fullStop {
+  offset: 50%;
+  stop-color: #ffd200;
+}
+
+stop.dk-halfStop {
+  offset: 50%;
+  stop-color: #eee;
+  stop-opacity: 1;
+}

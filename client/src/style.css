@@ -558,7 +558,7 @@ span.dk-hiddenSpan {
 }
 
 /* starReview.jsx */
-span.dk-rating {
+/* span.dk-rating {
   padding-right: 0.5rem;
   font-size: 17px;
 }
@@ -578,7 +578,7 @@ stop.dk-halfStop {
   offset: 50%;
   stop-color: #eee;
   stop-opacity: 1;
-}
+} */
 
 /* shoppingBagModal.jsx */
 
