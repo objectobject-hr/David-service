@@ -1,5 +1,5 @@
 import React from "react";
-import StarReview from "../starReview.jsx";
+import StarReview from "../starReview/starReview.jsx";
 import "./pairs.css";
 
 const Pairs = props => (

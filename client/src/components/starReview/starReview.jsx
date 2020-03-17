@@ -1,5 +1,5 @@
 import React from "react";
-import "./startReview.css";
+import "./starReview.css";
 
 class StarReview extends React.Component {
   constructor(props) {

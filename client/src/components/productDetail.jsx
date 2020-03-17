@@ -1,5 +1,5 @@
 import React from "react";
-import StarReview from "./starReview.jsx";
+import StarReview from "./starReview/starReview.jsx";
 
 const ProductDetail = props => (
   <div>
